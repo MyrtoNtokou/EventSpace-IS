@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requests</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <style>
+        :root {
+            --bg: #F2EDE4; 
+            --card-bg: #ffffff;
+            --primary: #6DAFBD; 
+            --accent-purple: #BC7AF9;
+            --accent-green: #B5CB99;
+            --accent-orange: #F29727;
+            --text-main: #4A4A4A;
+            --text-muted: #8E8E8E;
+            --radius: 20px;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+            --success: #B5CB99;
+            --danger: #E6A4B4;
+        }
+
+        body {
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text-main);
+            overflow: hidden;
+        }
+
+        /* LIST COLUMN */
+        .list-column {
+            width: 380px;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+        }
+
+        h2 { font-weight: 700; color: var(--text-main); margin-bottom: 10px; padding-left: 10px; }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            transition: 0.3s ease;
+            border-left: 6px solid transparent;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card:hover { transform: translateX(5px); }
+        .card.selected { border-left-color: var(--primary); background: #fffcfb; }
+
+        .submission-badge {
+            font-size: 0.7rem;
+            background: var(--bg);
+            padding: 5px 10px;
+            border-radius: 10px;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+
+        .card-actions { display: flex; gap: 8px; }
+        .btn-icon {
+            width: 32px; height: 32px; border: none; border-radius: 8px;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            font-weight: bold; transition: 0.2s;
+        }
+        .btn-plus { background: #ecfdf5; color: #10b981; }
+        .btn-minus { background: #fef2f2; color: #ef4444; }
+
+        /* DETAILS COLUMN */
+        .details-column {
+            flex-grow: 1;
+            margin: 20px;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .hidden { display: none !important; }
+
+        .details-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 32px; }
+        
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }
+        .info-item label { display: block; font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em; margin-bottom: 4px; }
+        .info-item span { font-weight: 600; font-size: 1rem; }
+
+        .section-box {
+            background: #fafafa; border: 1px solid #eee; border-radius: 15px;
+            padding: 16px; min-height: 60px; margin-bottom: 24px; line-height: 1.6;
+        }
+
+        .action-footer { display: flex; gap: 16px; margin-top: 40px; }
+        .btn-circle {
+            width: 45px; height: 45px; border-radius: 50%; border: none;
+            font-size: 1.5rem; cursor: pointer; display: flex; align-items: center; 
+            justify-content: center; transition: 0.3s;
+        }
+
+        @media (max-width: 1024px) {
+            .sidebar-right { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!--SIDEBAR -->
+    <div class="sidebar">
+        <a href="homepage.html" class="nav-item" title="Αρχική">
+            <img src="icons/home.svg" class="nav-icon">
+        </a>
+
+        <a href="calendar.html" class="nav-item" title="Ημερολόγιο">
+            <img src="icons/calendar.svg" class="nav-icon">
+        </a>
+        
+        <a href="requestsModern.html" class="nav-item active" title="Αιτήματα">
+            <img src="icons/request.svg" class="nav-icon">
+        </a>
+        
+        <a href="settings.html" class="nav-item" title="Υπολογισμός Προσφοράς">
+            <img src="icons/calculator.svg" class="nav-icon">
+        </a>
+        
+        <a href="profile.html" class="nav-item" style="margin-top: auto;" title="Λογαριασμός">
+            <img src="icons/account.svg" class="nav-icon">
+        </a>
+    </div>
+
+    <div class="list-column">
+        <h2 style="color:#51818D;">Αιτήματα Εκδηλώσεων</h2>
+        <div id="request-list">
+            <div id="req-1" class="card" onclick="openRequest('req-1', 'Γιάννης Παπαδόπουλος', 'Ιδιώτης', '15 Μαΐου 2026', '18:00', '6971234567', '27/04/26', '22:30')">
+                <div>
+                    <div class="submission-badge">27/04 • 22:30</div>
+                    <div class="card-title" style="font-weight:600">Γιάννης Παπαδόπουλος</div>
+                    <div class="card-sub" style="font-size:0.85rem; color:var(--text-muted)">Ιδιώτης • 15/05/26</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-icon btn-plus" onclick="removeReq(event, 'req-1')">+</button>
+                    <button class="btn-icon btn-minus" onclick="removeReq(event, 'req-1')">-</button>
+                </div>
+            </div>
+
+            <div id="req-2" class="card" onclick="openRequest('req-2', 'Εταιρεία ACME', 'Εταιρεία', '20 Ιουνίου 2026', '10:00', '2101111111', '26/04/26', '14:15')">
+                <div>
+                    <div class="submission-badge">26/04 • 14:15</div>
+                    <div class="card-title" style="font-weight:600">Εταιρεία ACME</div>
+                    <div class="card-sub" style="font-size:0.85rem; color:var(--text-muted)">Εταιρεία • 20/06/26</div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn-icon btn-plus" onclick="removeReq(event, 'req-2')">+</button>
+                    <button class="btn-icon btn-minus" onclick="removeReq(event, 'req-2')">-</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="details-pane" class="details-column">
+        <div id="empty-state" style="text-align: center; margin-top: 100px; color: var(--text-muted);">
+            Επιλέξτε ένα αίτημα για να δείτε τις λεπτομέρειες
+        </div>
+
+        <div id="details-content" class="hidden">
+            <div class="details-header">
+                <h1 id="det-name" style="margin:0; font-size: 2rem;">Όνομα</h1>
+                <div id="det-sub-time" style="color: var(--text-muted); font-size: 0.9rem; font-weight: 600;"></div>
+            </div>
+            
+            <div class="info-grid">
+                <div class="info-item"><label>Είδος Φορέα</label><span id="det-type">-</span></div>
+                <div class="info-item"><label>Ημερομηνία</label><span id="det-date">-</span></div>
+                <div class="info-item"><label>Ώρα Εκδήλωσης</label><span id="det-time">-</span></div>
+                <div class="info-item"><label>Τηλέφωνο Επικοινωνίας</label><span id="det-phone">-</span></div>
+            </div>
+
+            <label style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted);">Περιεχόμενο Αιτήματος</label>
+            <div class="section-box">Εδώ εμφανίζονται οι αναλυτικές πληροφορίες για το αίτημα της εκδήλωσης.</div>
+
+            <label style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted);">Σχόλια & Παρατηρήσεις</label>
+            <div class="section-box">Δεν υπάρχουν επιπλέον σχόλια.</div>
+
+            <div class="action-footer">
+                <button class="btn-circle btn-plus" onclick="finalize()" title="Αποδοχή">+</button>
+                <button class="btn-circle btn-minus" onclick="finalize()" title="Απόρριψη">-</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar-right"></div>
+
+    <script>
+        let activeId = null;
+
+        function openRequest(id, name, type, date, time, phone, subD, subT) {
+            activeId = id;
+            const content = document.getElementById('details-content');
+            const empty = document.getElementById('empty-state');
+
+            empty.classList.add('hidden');
+            content.classList.remove('hidden');
+
+            document.getElementById('det-name').innerText = name;
+            document.getElementById('det-type').innerText = type;
+            document.getElementById('det-date').innerText = date;
+            document.getElementById('det-time').innerText = time;
+            document.getElementById('det-phone').innerText = phone;
+            document.getElementById('det-sub-time').innerText = "Υποβολή: " + subD + " " + subT;
+
+            document.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
+            document.getElementById(id).classList.add('selected');
+        }
+
+        function removeReq(event, id) {
+            if(event) event.stopPropagation();
+            document.getElementById(id).remove();
+            if(activeId === id) {
+                activeId = null;
+                document.getElementById('details-content').classList.add('hidden');
+                document.getElementById('empty-state').classList.remove('hidden');
+            }
+        }
+
+        function finalize() { if(activeId) removeReq(null, activeId); }
+    </script>
+</body>
+</html>
