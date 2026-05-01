@@ -24,6 +24,43 @@
     transition: all 0.3s ease;
 }
 
+.user-menu-container {
+    position: relative; 
+    margin-top: auto;   /* Σπρώχνει το εικονίδιο τέρμα κάτω στην μπάρα */
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.logout-popover {
+    position: absolute;
+    bottom: 20px;      
+    left: 70px;         /* Το τοποθετεί δεξιά από το sidebar για να μην το κρύβει */
+    background: white;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    z-index: 1000;
+    min-width: 120px;
+}
+
+.logout-popover.hidden {
+    display: none;    /* Κρυφό από προεπιλογή */
+}
+
+.logout-btn {
+    width: 100%;
+    padding: 10px;
+    background: #fef2f2;
+    color: #ef4444;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
 .nav-item:hover { background-color: #f0f7f8; }
 .nav-item.active { background-color: var(--accent-color); }
 .nav-item.active .nav-icon { filter: brightness(0) invert(1); }
