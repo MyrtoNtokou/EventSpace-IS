@@ -1,41 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="el">
 <head>
-  <title>Login</title>
-
-  <style>
-    .container {
-      border: 1px solid black;
-      width: 300px;
-      padding: 20px;
-    }
-  </style>
-
+  <meta charset="UTF-8">
+  <title>Login - EventSpace</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/loginStyle.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-  <h1>Login</h1>
+  <div class="login-wrapper">
+    <div class="login-container">
+      <h2>Είσοδος</h2>
 
-  <div class="container">
+      <form>
+        <div class="form-group">
+          <label class="field-title">USERNAME</label>
+          <input type="text" class="input-full">
+        </div>
 
-    <form>
+        <div class="form-group">
+          <label class="field-title">PASSWORD</label>
+          <input type="password" class="input-full">
+        </div>
 
-      Username:<br>
-      <input type="text"><br><br>
+        <div class="checkbox-item" style="margin-bottom: 30px;">
+          <input type="checkbox" id="remember">
+          <label for="remember" style="cursor:pointer;">Remember me</label>
+        </div>
 
-      Password:<br>
-      <input type="password"><br><br>
-
-      <input type="checkbox"> Remember Me<br><br>
-
-      <!-- Δοκίμασε αυτό -->
-      <a href="homepage.html" class="btn-action btn-accept" style="text-decoration: none; display: inline-block; text-align: center;">
-          Log in
-      </a>
-
-    </form>
+        <!-- Το κουμπί Login -->
+        <a href="homepage.html" class="login-submit-btn">
+            Log in
+        </a>
+      </form>
+    </div>
+  </div>
 
 </body>
-
 </html>
