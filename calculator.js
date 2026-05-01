@@ -17,17 +17,89 @@ function formatTime(id) {
         });
     }
 }
-
 formatTime('startTime');
 formatTime('endTime');
 
-// Λειτουργία κουμπιού
+
 function calculateOffer() {
-    const event = document.getElementById('eventSelect').value;
-    if(!event) {
-        alert("Παρακαλώ επιλέξτε μια εκδήλωση πρώτα!");
+    const startTime = document.getElementById('startTime').value;
+    const endTime = document.getElementById('endTime').value;
+    const orgType = document.getElementById('orgType').value;
+    const resultField = document.getElementById('finalAmount');
+
+    // 1. Έλεγχος αν έχουν συμπληρωθεί οι ώρες
+    if (!startTime || !endTime) {
+        alert("Παρακαλώ συμπληρώστε την ώρα έναρξης και λήξης.");
         return;
     }
-    console.log("Έναρξη υπολογισμού για: " + event);
-    alert("Η διαδικασία υπολογισμού ξεκίνησε επιτυχώς!");
+
+    function timeToDecimal(time) {
+        const [hours, minutes] = time.split(':').map(Number);
+        return hours + (minutes / 60);
+    }
+
+    const start = timeToDecimal(startTime);
+    const end = timeToDecimal(endTime);
+
+    let duration = end - start;
+    if (duration < 0) duration += 24; 
+
+    if (duration === 0) {
+        alert("Η ώρα λήξης δεν μπορεί να είναι ίδια με την ώρα έναρξης.");
+        return;
+    }
+
+    let hourlyRate = 120;
+
+    if (orgType === "ΜΚΟ") {
+        hourlyRate = 100;
+    } else if (orgType === "Corporate") {
+        hourlyRate = 150;
+    }
+
+    const totalAmount = duration * hourlyRate;
+    resultField.value = totalAmount.toFixed(2) + " €";
 }
+
+const eventData = {
+    "Event 1": {
+        date: "15/06/2024",
+        start: "10:00",
+        end: "14:00",
+        org: "Corporate",
+        community: true,
+        miny: false
+    },
+    "Event 2": {
+        date: "20/07/2024",
+        start: "18:00",
+        end: "21:00",
+        org: "ΜΚΟ",
+        community: false,
+        miny: true
+    }
+};
+
+document.getElementById('eventSelect').addEventListener('change', function() {
+    const selectedEvent = this.value;
+    const data = eventData[selectedEvent];
+
+    if (data) {
+        document.getElementById('eventDate').value = data.date;
+        document.getElementById('startTime').value = data.start;
+        document.getElementById('endTime').value = data.end;
+        document.getElementById('orgType').value = data.org;
+        document.getElementById('communityPartner').checked = data.community;
+        document.getElementById('minyHub').checked = data.miny;
+        document.getElementById('finalAmount').value = "";
+    }
+    
+    if (data) {
+        document.getElementById('eventDate').value = data.date;
+        document.getElementById('startTime').value = data.start;
+        document.getElementById('endTime').value = data.end;
+        document.getElementById('orgType').value = data.org;
+        document.getElementById('communityPartner').checked = data.community;
+        document.getElementById('minyHub').checked = data.miny;
+    }
+});

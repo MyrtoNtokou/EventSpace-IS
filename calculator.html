@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <html lang="el">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,34 +9,41 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="sidebar.css">
 </head>
+
 <body>
 
-    <!-- Η Sidebar πρέπει να είναι το πρώτο παιδί του body -->
     <nav class="sidebar">
         <a href="homepage.html" class="nav-item" title="Αρχική">
             <img src="icons/home.svg" class="nav-icon" alt="Home">
         </a>
+
         <a href="calendar.html" class="nav-item" title="Ημερολόγιο">
             <img src="icons/calendar.svg" class="nav-icon" alt="Calendar">
         </a>
+
         <a href="requests.html" class="nav-item" title="Αιτήματα">
             <img src="icons/request.svg" class="nav-icon" alt="Requests">
         </a>
+
         <a href="settings.html" class="nav-item active" title="Υπολογισμός Προσφοράς">
             <img src="icons/calculator.svg" class="nav-icon" alt="Calculator">
         </a>
+
         <a href="profile.html" class="nav-item" style="margin-top: auto;" title="Λογαριασμός">
             <img src="icons/account.svg" class="nav-icon" alt="Account">
         </a>
+
     </nav>
 
-    <!-- Το main-wrapper θα πάρει τον υπόλοιπο χώρο στα δεξιά -->
     <div class="main-wrapper">
+
         <main class="content">
             <div class="form-container">
+
                 <h2>Υπολογισμός Προσφοράς</h2>
 
                 <div class="form-group">
+
                     <label class="field-title" for="eventSelect">Επιλέξτε εκδήλωση:</label>
                     <select id="eventSelect" class="input-full">
                         <option value="" disabled selected>-- Επιλογή Εκδήλωσης --</option>
@@ -43,46 +52,77 @@
                     </select>
                 </div>
 
+
+
                 <div class="form-group">
                     <label class="field-title">Ημερομηνία:</label>
                     <input type="text" id="eventDate" placeholder="ΗΗ/ΜΜ/ΕΕΕΕ" maxlength="10" class="input-date">
-                    
+
                     <div class="time-row">
+
                         <div>
                             <label class="field-title">Έναρξη:</label>
                             <input type="text" id="startTime" placeholder="00:00" maxlength="5" class="input-time">
                         </div>
+
                         <div>
                             <label class="field-title">Λήξη:</label>
                             <input type="text" id="endTime" placeholder="00:00" maxlength="5" class="input-time">
-                        </div>
-                    </div>
-                </div>
 
+                        </div>
+
+                    </div>
+
+                </div>
                 <div class="form-group">
+
                     <label class="field-title" for="orgType">Είδος φορέα:</label>
+
                     <select id="orgType" class="input-full">
                         <option value="" disabled selected>-- Επιλογή Φορέα --</option>
                         <option value="ΜΚΟ">ΜΚΟ</option>
-                        <option value="Small Business">Small Business</option>
-                        <option value="Corporate">Corporate</option>
+                        <option value="Small Business">Μικρομεσαία Επιχείρηση</option>
+                        <option value="Corporate">Μεγάλη Επιχείρηση</option>
                     </select>
+
                 </div>
 
                 <div class="checkbox-row">
                     <label class="checkbox-item">
-                        <input type="checkbox" id="communityPartner"> Community Partner
+                        <!-- Προσθήκη της κλάσης custom-tick εδώ -->
+                        <input type="checkbox" id="communityPartner" class="custom-tick"> 
+                        <span>Community Partner</span>
                     </label>
+
+                    
                     <label class="checkbox-item">
-                        <input type="checkbox" id="minyHub"> Miny Hub
+                        <!-- Προσθήκη της κλάσης custom-tick εδώ -->
+                        <input type="checkbox" id="minyHub" class="custom-tick"> 
+                        <span>Miny Hub</span>
                     </label>
                 </div>
 
-                <button type="button" class="calc-btn" onclick="calculateOffer()">Υπολογισμός προσφοράς</button>
+               <div class="result-row">
+
+    <div class="calc-check-wrapper" onclick="calculateOffer()">
+
+        <img src="icons/check-circle.svg" alt="Calculate" class="calc-icon">
+
+    </div>
+
+
+        <div class="amount-wrapper">
+            <label class="field-title">Τελικό Ποσό:</label>
+            <input type="text" id="finalAmount" class="input-amount" placeholder="0,00€" readonly>
+        </div>
+
+    </div>
             </div>
         </main>
     </div>
 
     <script src="calculator.js"></script>
+
 </body>
+
 </html>
