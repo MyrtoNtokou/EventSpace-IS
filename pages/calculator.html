@@ -6,24 +6,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Υπολογισμός Προσφοράς</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
 </head>
 
 <body>
 
     <!-- SIDEBAR -->
     <div class="sidebar">
-        <a href="homepage.html" class="nav-item" title="Αρχική"><img src="icons/home.svg" class="nav-icon"></a>
-        <a href="calendar.html" class="nav-item" title="Ημερολόγιο"><img src="icons/calendar.svg" class="nav-icon"></a>
-        <a href="requests.html" class="nav-item active" title="Αιτήματα"><img src="icons/request.svg" class="nav-icon"></a>
-        <a href="calculator.html" class="nav-item" title="Υπολογισμός Προσφοράς"><img src="icons/calculator.svg" class="nav-icon"></a>
+        <a href="homepage.html" class="nav-item" title="Αρχική"><img src="../icons/home.svg" class="nav-icon"></a>
+        <a href="calendar.html" class="nav-item" title="Ημερολόγιο"><img src="../icons/calendar.svg" class="nav-icon"></a>
+        <a href="requests.html" class="nav-item" title="Αιτήματα"><img src="../icons/request.svg" class="nav-icon"></a>
+        <a href="calculator.html" class="nav-item active" title="Υπολογισμός Προσφοράς"><img src="../icons/calculator.svg" class="nav-icon"></a>
         <div class="user-menu-container" style="margin-top: auto;">
             <div id="logout-popover" class="logout-popover hidden">
                 <button onclick="handleLogout()" class="logout-btn">Έξοδος</button>
             </div>
             <div class="nav-item" onclick="toggleLogoutMenu(event)" title="Λογαριασμός" style="cursor:pointer; margin-bottom:0;">
-                <img src="icons/account.svg" class="nav-icon">
+                <img src="../icons/account.svg" class="nav-icon">
             </div>
         </div>
     </div>
@@ -99,7 +99,7 @@
 
     <div class="calc-check-wrapper" onclick="calculateOffer()">
 
-        <img src="icons/check-circle.svg" alt="Calculate" class="calc-icon">
+        <img src="../icons/check-circle.svg" alt="Calculate" class="calc-icon">
 
     </div>
 
@@ -114,8 +114,8 @@
         </main>
     </div>
 
-    <script src="calculator.js"></script>
-    <script src="script.js"></script>
+    <script src="../js/calculator.js"></script>
+    <script src="../js/script.js"></script>
 
 </body>
 

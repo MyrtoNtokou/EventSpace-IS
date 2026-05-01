@@ -6,7 +6,7 @@ function toggleLogoutMenu(event) {
 
 function handleLogout() {
     // Ανακατεύθυνση στη σελίδα login
-    window.location.href = "index.html"; 
+    window.location.href = "../index.html"; 
 }
 
 // Κλείσιμο του μενού αν κάνεις κλικ οπουδήποτε αλλού στην οθόνη
