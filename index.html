@@ -1,33 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="el">
 <head>
-  <title>Αρχική</title>
-
-  <style>
-    .box {
-      border: 1px solid black;
-      width: 150px;
-      height: 80px;
-      display: inline-block;
-      text-align: center;
-      line-height: 80px;
-      margin: 20px;
-    }
-  </style>
-
+    <meta charset="UTF-8">
+    <title>Event Space</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/indexStyle.css">
 </head>
+  <body class="selection-body">
+    <div class="main-wrapper">
+      <div class="landing-layout">
+          <h1 class="landing-title">Event Space</h1>
+          
+          <div class="options-row">
+              <!-- Επιλογή Πελάτη -->
+              <a href="pages/clientsInterface.html" class="minimal-box client-border">
+                  <span class="box-label">ΠΕΛΑΤΗΣ</span>
+                  <span class="box-sub">Νέο Αίτημα</span>
+                  <div class="line-decorator"></div>
+              </a>
 
-<body>
-
-  <h1>Επιλογή Χρήστης</h1>
-
-  <div class="box">
-    <a href="pages/clientsInterface.html">Πελάτης</α>
-  </div>
- 
-  <div class="box">
-    <a href="pages/login.html">Οργανισμός</a>
-  </div>
-
-</body>
-<html>
+              <!-- Επιλογή Οργανισμού -->
+              <a href="pages/login.html" class="minimal-box org-border">
+                  <span class="box-label">ΟΡΓΑΝΙΣΜΟΣ</span>
+                  <span class="box-sub">Διαχείριση</span>
+                  <div class="line-decorator"></div>
+              </a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,92 @@
+/* Καθαρό Background χωρίς πλαίσια */
+.main-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--bg-main); 
+}
+
+.landing-layout {
+    text-align: center;
+    margin-top: -125px;
+}
+
+.landing-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    letter-spacing: -1px;
+    margin-bottom: 60px;
+}
+
+.options-row {
+    display: flex;
+    gap: 30px; /* Απόσταση μεταξύ των δύο επιλογών */
+}
+
+/* Τα Μακρουλά Οριζόντια Πλαίσια */
+.minimal-box {
+    width: 320px;
+    padding: 60px 40px;
+    text-decoration: none;
+    background: transparent;
+    border: 4px solid;
+    border-radius: var(--border-radius-lg); /* 40px για συνοχή[cite: 4] */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Χρωματική Ταυτότητα Πελάτη[cite: 4] */
+.client-border {
+    border-color: #E89B81;
+    color: #E89B81;
+}
+
+/* Χρωματική Ταυτότητα Οργανισμού[cite: 4] */
+.org-border {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+/* Hover Effects: Γέμισμα και Σκιά[cite: 4, 5] */
+.minimal-box:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+.client-border:hover {
+    background-color: #E89B81;
+    color: white;
+}
+
+.org-border:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+/* Typography[cite: 4] */
+.box-label {
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+}
+
+.box-sub {
+    font-size: 0.8rem;
+    margin-top: 5px;
+    font-weight: 400;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+/* Διακοσμητική γραμμή που γίνεται λευκή στο hover[cite: 4] */
+.line-decorator {
+    width: 40px;
+    height: 2px;
+    background: currentColor;
+    margin-top: 20px;
+}
