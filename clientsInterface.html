@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReserveSpace</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="clientsInterface.css">
+</head>
+<body>
+
+  <div class="container mt-5">
+    <h1 class="text-center">WhenHub reservation site</h1>
+    <p class="text-center">Καλώς ήρθατε στο WhenHub reservation site!</p>
+    <p class="text-center">Εδώ μπορείτε να κάνετε κρατήσεις για διάφορες υπηρεσίες και εκδηλώσεις.</p>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Οργανισμός WhenHub</h5>
+        <p class="card-text">Το WHEN (πρώην Women On Top) είναι ένας ΜΚΟ, που ιδρύθηκε το 2012 και σήμερα απασχολεί 13 άτομα. Βασικός στόχος του Οργανισμού είναι η επαγγελματική και οικονομική ενδυνάμωση των γυναικών και η ισότητα στην εργασία.
+          Ένα από τα προγράμματα του When το οποίο δημιουργήθηκε πριν από ένα χρόνο και έχει πλέον εδραιωθεί είναι το When Hub. Πρόκειται για ένα χώρο που έχει ως στόχο: «να κάνει πράξη καθημερινά τις αξίες του When»
+        </p>
+        <p class="card-text">Κλείστε ένα χώρο εκδηλώσεων και συνδυάστε, αν θέλετε, μαζί την υπηρεσία δημιουργικής απασχόλησης για τα παιδιά των καλεσμένων σας.
+
+          Οι χώροι του Hub μπορούν να φιλοξενήσουν οποιαδήποτε συνάντησή σας από 2 έως 70 άτομα και διαθέτει τον απαραίτητο εξοπλισμό για τις εκδηλώσεις σας: οθόνες και γρήγορο internet.
+          
+          Εκμεταλλευτείτε τις παροχές του WhenHub και οργανώστε την επόμενη εκδήλωσή σας σε έναν χώρο που έχει δημιουργηθεί με γνώμονα την άνεση και την ευκολία σας.
+          Ενδεικτικά αναφέρουμε ότι οι χώροι μπορούν να διαμορφθωθούν ανάλογα με τις ανάγκες σας, ενώ υπάρχει και η δυνατότητα να συνδυάσετε την κράτησή σας με υπηρεσίες catering και δημιουργικής απασχόλησης για τα παιδιά των καλεσμένων σας.
+          Διαθέτουμε επίσης ομάδες συναεργατών/τριών που μπορούν να καλύψουν την εκδήλωση σε επίπεδο οπτικοακουστικό αλλά και στην διαδικτυακή της προβολή.
+        </p>
+        <p class="card-text"> Πριν προχωρήσετε στην κράτηση, σας ενημερώνουμε ότι ο τιμοκατάλογος των Υπηρεσιών μας διαφέρει ανάλογα με το είδος του Οργανωτικού Φορέα καθώς και ανάλογα με την ημέρα και τις ώρες που θα επιλέξετε.
+          Συγκεκριμένα λάβετε υπόψη ότι εκδηλώσεις που πραγματοποιούνται πέραν την 19:00 ώρα ή την ημέρα Σάββατο έχουν υψηλότερη τιμή από τις υπόλοιπες. 
+        </p>
+          <p class="card-text">
+            Σε κάθε περίπτωση, η ομάδα του WhenHub είναι στη διάθεσή σας για να σας ενημερώσει σχετικά με τις τιμές και να σας βοηθήσει να επιλέξετε την καλύτερη δυνατή επιλογή για την εκδήλωσή σας.   
+        </p>
+        <p class="card-text">
+          Για περισσότερες πληροφορίες σχετικά με τις υπηρεσίες μας, παρακαλούμε επισκεφθείτε την επίσημη ιστοσελίδα μας.
+        </p>
+          <a href="https://hub.when.org.gr/" class="btn btn-primary">Επισκεφθείτε το WhenHub</a>
+      </div>
+    </div>
+      <p class="text-center"> Παρακάτω εμφανίζεται ένα ημερολόγιο με όλες τις διαθέσιμες
+        ημερομηνίες για να διαλέξετε αυτή που σας ενδιαφέρει.
+      </p>
+    </div>
+      
+    <div class="mt-3">
+      <div class="mt-3 mb-5">
+        <div class="cal-card">
+          <div class="cal-nav">
+            <button onclick="changeMonth(-1)">&#8592;</button>
+            <div class="cal-month" id="calMonth"></div>
+            <button onclick="changeMonth(1)">&#8594;</button>
+          </div>
+          <div class="weekdays">
+            <div class="weekday">Δε</div>
+            <div class="weekday">Τρ</div>
+            <div class="weekday">Τε</div>
+            <div class="weekday">Πε</div>
+            <div class="weekday">Πα</div>
+            <div class="weekday">Σα</div>
+            <div class="weekday">Κυ</div>
+          </div>
+          <div class="days" id="daysGrid"></div>
+          <div class="legend">
+            <span><span class="legend-dot" style="background:#4caf50"></span>Διαθέσιμο</span>
+          </div>
+          <div class="text-center mt-4">
+            <p id="selectedDateLabel" class="mb-2 text-muted">Επιλέξτε μια διαθέσιμη ημερομηνία</p>
+            <button id="continueBtn" class="btn btn-primary" onclick="goToForm()" disabled>
+              Συνέχεια στην κράτηση
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="clientsInterface.js"></script>
+</body>
+</html>
