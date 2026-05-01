@@ -1,0 +1,234 @@
+:root {
+    --bg: #F2EDE4; 
+    --card-bg: #ffffff;
+    --primary: #6DAFBD; 
+    --text-main: #4A4A4A;
+    --text-muted: #8E8E8E;
+    --radius: 20px;
+    --shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+body {
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text-main);
+    overflow: hidden;
+}
+
+/* ΛΙΣΤΑ ΑΙΤΗΜΑΤΩΝ */
+.list-column {
+    width: 380px;
+    margin: 20px 0 20px 20px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.list-column h2 { 
+    font-weight: 700; 
+    color: #51818D; 
+    margin-bottom: 10px; 
+    padding-left: 10px; 
+}
+
+/* Η κάρτα τώρα λειτουργεί ως στήλη για να έχουμε τη γραμμή 1 και τη γραμμή 2 */
+.card {
+    display: flex;
+    flex-direction: column; 
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: var(--shadow);
+    transition: 0.3s ease;
+    border-left: 6px solid transparent;
+    cursor: pointer;
+}
+
+/* Το container που κρατάει τα πάντα μέσα στην κάρτα */
+.card-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Η ΠΡΩΤΗ ΓΡΑΜΜΗ: Εδώ γίνεται η μαγεία για την ευθυγράμμιση */
+.card-main-row {
+    display: flex;
+    justify-content: space-between; /* Σπρώχνει το badge δεξιά και το όνομα αριστερά */
+    align-items: center;            /* Τα βάζει στην ίδια ευθεία οριζόντια */
+    width: 100%;
+}
+
+.card-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-main);
+}
+
+.card-subtext {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 4px; /* Μικρή απόσταση από την πάνω γραμμή */
+}
+
+/* Το badge πλέον δεν χρειάζεται περίεργα margins */
+.submission-badge {
+    font-size: 0.7rem;
+    background: var(--bg);
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.card.selected { 
+    border-left-color: var(--primary); 
+    background: #fffcfb; 
+}
+
+.card:hover {
+    transform: translateX(10px); 
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08); 
+}
+
+/* ΣΤΗΛΗ ΛΕΠΤΟΜΕΡΕΙΩΝ */
+.details-column {
+    flex-grow: 1;
+    margin: 20px;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 40px;
+    box-shadow: var(--shadow);
+    overflow-y: auto;
+}
+
+.hidden { display: none !important; }
+
+#empty-state { text-align: center; margin-top: 100px; color: var(--text-muted); }
+
+.details-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+    margin-bottom: 30px; 
+}
+
+/* Υποβολή (Muted)[cite: 3] */
+#det-sub-time {
+    color: #A0A0A0;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+}
+
+/* LAYOUT ΛΕΠΤΟΜΕΡΕΙΩΝ[cite: 3] */
+.info-row { margin-bottom: 25px; }
+
+.flex-row { display: flex; gap: 0; }
+
+.info-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
+}
+
+.info-group label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    margin-bottom: 5px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.info-group span {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+/* Checkbox (Έντονο)[cite: 3] */
+.checkbox-style {
+    flex-direction: row !important;
+    align-items: center;
+    gap: 15px;
+}
+
+#det-kids-service {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
+/* Περιεχόμενο Αιτήματος (Χωρίς background)[cite: 3] */
+.section-label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.section-box {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* ΣΤΟΙΧΕΙΑ ΕΠΙΚΟΙΝΩΝΙΑΣ */
+.mini-title {
+    font-size: 0.75rem;
+    color: var(--primary);
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin: 40px 0 20px 0;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+/* Το container των κουμπιών */
+.action-footer { 
+    display: flex; 
+    gap: 16px; 
+    margin-top: 100px;
+    justify-content: flex-end; 
+}
+
+/* Κοινό στυλ για τα κουμπιά Αποδοχή/Απόρριψη */
+.btn-action {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    border-radius: 25px; /* Στρογγυλεμένα όπως στην εικόνα */
+    border: none;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 0.95rem;
+}
+
+/* Συγκεκριμένα χρώματα (από την αρχική φιλοσοφία) */
+.btn-accept {
+    background-color: #ecfdf5; /* Απαλό πράσινο */
+    color: #10b981;
+}
+
+.btn-reject {
+    background-color: #fef2f2; /* Απαλό κόκκινο */
+    color: #ef4444;
+}
+
+/* Hover εφέ για να "ζωντανεύουν" */
+.btn-action:hover {
+    transform: translateY(-2px);
+    filter: brightness(0.95);
+}
