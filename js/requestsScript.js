@@ -1,27 +1,32 @@
 let activeId = null;
 
-function openRequest(id, name, type, date, time, phone, subD, subT, email, guests, hasKids) {
-    activeId = id;
-    
-    // Εμφάνιση περιεχομένου
+function openRequest(id, companyName, type, date, time, phone, subDate, subTime, email, guests, kids, contactPerson, description) {
+    // 1. Εμφάνιση του δεξιού πλαισίου
     document.getElementById('empty-state').classList.add('hidden');
     document.getElementById('details-content').classList.remove('hidden');
 
-    // Βασικά Στοιχεία
-    document.getElementById('det-name').innerText = name;
-    document.getElementById('det-fullname').innerText = name; // Ονοματεπώνυμο στην επικοινωνία
+    // 2. Ενημέρωση των στοιχείων Φορέα
+    document.getElementById('det-name').innerText = companyName; // Το όνομα της εταιρείας πάνω-πάνω
     document.getElementById('det-type').innerText = type;
+    document.getElementById('det-sub-time').innerText = "Υποβολή: " + subDate + " " + subTime;
+
+    // 3. Ημερομηνία & Ώρα
     document.getElementById('det-date').innerText = date;
     document.getElementById('det-time').innerText = time;
-    document.getElementById('det-sub-time').innerText = "Υποβολή: " + subD + " " + subT;
 
-    // Νέα Στοιχεία
+    // 4. Άτομα & Checkbox
+    document.getElementById('det-guests').innerText = guests;
+    document.getElementById('det-kids-service').checked = kids;
+
+    // 5. Περιεχόμενο (Οι δύο προτάσεις)
+    document.getElementById('det-content').innerText = description; // Εδώ μπαίνει το μεγάλο κείμενο[cite: 3]
+
+    // 6. Στοιχεία Επικοινωνίας (Το όνομα του ανθρώπου)
+    document.getElementById('det-fullname').innerText = contactPerson; // Το ονοματεπώνυμο υπευθύνου[cite: 3]
     document.getElementById('det-phone').innerText = phone;
     document.getElementById('det-email').innerText = email;
-    document.getElementById('det-guests').innerText = guests;
-    document.getElementById('det-kids-service').checked = hasKids;
 
-    // Highlight επιλεγμένης κάρτας
+    // 7. Διαχείριση "Selected" κλάσης στις κάρτες
     document.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
     document.getElementById(id).classList.add('selected');
 }

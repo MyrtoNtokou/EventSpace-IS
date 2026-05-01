@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Requests</title>
+    <title>Αιτήματα Εκδηλώσεων</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/requestsStyle.css">
@@ -30,16 +30,42 @@
     <div class="list-column">
         <h2>Αιτήματα Εκδηλώσεων</h2>
         <div id="request-list">
-            <!-- Παράδειγμα κάρτας με τα νέα δεδομένα (προστέθηκαν email, άτομα, kids) -->
-            <div id="req-1" class="card" onclick="openRequest('req-1', 'Γιάννης Παπαδόπουλος', 'Ιδιώτης', '15 Μαΐου 2026', '18:00', '6971234567', '27/04/26', '22:30', 'giannis@email.com', '45', true)">
-                <div class="card-content">
-                    <div class="card-main-row">
-                        <span class="card-name">Γιάννης Παπαδόπουλος</span>
-                        <div class="submission-badge">27/04 • 22:30</div>
+            <div id="request-list">
+               <div id="request-list">
+                    <!-- Αίτημα 1: ΜΚΟ -->
+                    <div id="req-1" class="card" onclick="openRequest('req-1', 'GreenPlanet', 'ΜΚΟ', '10/09/2026', '11:00-15:00', '2105554433', '27/04/26', '14:20', 'info@greenplanet.org', '60', true, 'Νίκος Παππάς', 'Η εκδήλωση αφορά μια ημερίδα ενημέρωσης για την κλιματική αλλαγή και τις τοπικές πρωτοβουλίες αναδάσωσης. Θα πραγματοποιηθούν ομιλίες από ειδικούς επιστήμονες και θα ακολουθήσει ανοιχτή συζήτηση με το κοινό.')">
+                        <div class="card-content">
+                            <div class="card-main-row">
+                                <span class="card-name">GreenPlanet</span>
+                                <div class="submission-badge">01/05 • 14:20</div>
+                            </div>
+                            <div class="card-subtext">ΜΚΟ • 10/09/26</div>
+                        </div>
                     </div>
-                    <div class="card-subtext">Ιδιώτης • 15/05/26</div>
+
+                    <!-- Αίτημα 2: Μικρομεσαία Επιχείρηση -->
+                    <div id="req-2" class="card" onclick="openRequest('req-2', 'BrightStep AE', 'Μικρομεσαία Επιχείρηση', '25/07/2026', '16:00-19:00', '6933445566', '01/05/26', '15:45', 'astergiou@brightstep.gr', '40', false, 'Άννα Στεργίου', 'Πρόκειται για ένα εσωτερικό σεμινάριο ευαισθητοποίησης του προσωπικού μας σχετικά με την πρόληψη της έμφυλης βίας στον εργασιακό χώρο. Στόχος μας είναι η δημιουργία ενός ασφαλούς περιβάλλοντος εργασίας και η ενημέρωση για τα πρωτόκολλα προστασίας των εργαζομένων.')">
+                        <div class="card-content">
+                            <div class="card-main-row">
+                                <span class="card-name">BrightStep AE</span>
+                                <div class="submission-badge">01/05 • 15:45</div>
+                            </div>
+                            <div class="card-subtext">Επιχείρηση • 25/10/26</div>
+                        </div>
+                    </div>
+
+                    <!-- Αίτημα 3: Μεγάλη Επιχείρηση -->
+                    <div id="req-3" class="card" onclick="openRequest('req-3', 'GlobalTech Solutions', 'Μεγάλη Επιχείρηση', '15/11/2026', '09:00-12:00', '2109998877', '15/04/26', '17:10', 'kalogirou@globaltech-solutions.com', '70', false, 'Μάνος Καλογήρου', 'Το συνέδριο εστιάζει στις νέες τάσεις της επιχειρηματικότητας και της τεχνολογικής καινοτομίας στην Ελλάδα και το εξωτερικό. Θα συμμετέχουν στελέχη από μεγάλες εταιρείες του κλάδου και θα παρουσιαστούν επιτυχημένα παραδείγματα ψηφιακού μετασχηματισμού.')">
+                        <div class="card-content">
+                            <div class="card-main-row">
+                                <span class="card-name">GlobalTech Solutions</span>
+                                <div class="submission-badge">01/05 • 17:10</div>
+                            </div>
+                            <div class="card-subtext">Επιχείρηση • 15/11/26</div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                            </div>
         </div>
     </div>
 
