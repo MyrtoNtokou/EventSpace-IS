@@ -1,42 +1,31 @@
 /* sidebar.css */
-
 .sidebar {
     width: 80px;
-    margin: 20px;
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(10px);
-    border-radius: var(--radius);
+    min-width: 80px; /* Εξασφαλίζει ότι δεν θα μικρύνει */
+    background-color: var(--sidebar-bg);
+    height: 100%;
+    border-radius: var(--border-radius-lg);
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px 0;
-    box-shadow: var(--shadow);
-    border: 1px solid rgba(255,255,255,0.3);
-    flex-shrink: 0;
+    padding: 30px 0;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.02);
+    z-index: 100;
 }
 
 .nav-item {
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 50px;
     height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border-radius: 15px;
-    margin-bottom: 15px;
-    cursor: pointer;
-    font-size: 1.2rem;
     transition: all 0.3s ease;
-    color: var(--text-muted);
 }
 
-.nav-item:hover, .nav-item.active {
-    background: var(--primary);
-    color: white;
-    transform: scale(1.1);
-}
-
-/* Όταν το nav-item είναι active ή hover, άσπρισε την εικόνα */
-.nav-item:hover .nav-icon,
-.nav-item.active .nav-icon {
-    filter: brightness(0) invert(1);
-}
+.nav-item:hover { background-color: #f0f7f8; }
+.nav-item.active { background-color: var(--accent-color); }
+.nav-item.active .nav-icon { filter: brightness(0) invert(1); }
+.nav-icon { width: 24px; height: 24px; opacity: 0.7; }
+.nav-item:hover .nav-icon { opacity: 1; }
