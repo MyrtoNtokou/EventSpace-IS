@@ -2,81 +2,84 @@
 <html lang="el">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>EventSpace | Dashboard</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/homepageStyle.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
 </head>
-<body>
+<body class="dashboard-body">
 
+     <!-- SIDEBAR -->
     <div class="sidebar">
-        <nav>
-            <a href="#">Ημερολόγιο</a>
-            <a href="#">Αιτήματα</a>
-            <a href="#">Υπολογισμός προσφοράς</a>
-        </nav>
-        <nav style="margin-top: auto;">
-            <a href="#" class="bottom">Λογαριασμός</a>
-        </nav>
-    </div>
-
-    <div class="main-content">
+        <a href="homepage.html" class="nav-item active" title="Αρχική"><img src="../icons/home.svg" class="nav-icon"></a>
+        <a href="calendar.html" class="nav-item" title="Ημερολόγιο"><img src="../icons/calendar.svg" class="nav-icon"></a>
+        <a href="requests.html" class="nav-item" title="Αιτήματα"><img src="../icons/request.svg" class="nav-icon"></a>
+        <a href="calculator.html" class="nav-item" title="Υπολογισμός Προσφοράς"><img src="../icons/calculator.svg" class="nav-icon"></a>
         
-        <div class="welcome-header">Καλώς ήρθατε</div>
-
-        <div class="top-row">
-            <div class="notifications-panel">
-                <div class="bubble-container">
-                    <div class="label">Inbox</div>
-                    <div class="bubble-content">Έχετε 5 νέα αιτήματα</div>
-                </div>
-                <div class="bubble-container">
-                    <div class="label">Προσφορά</div>
-                    <div class="bubble-content">Εκκρεμούν 3 events</div>
-                </div>
+        <div class="user-menu-container" style="margin-top: auto;">
+            <div id="logout-popover" class="logout-popover hidden">
+                <button onclick="handleLogout()" class="logout-btn">Έξοδος</button>
             </div>
-
-            <div class="calendar-card">
-                <div style="display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 15px;">
-                    <span id="monthYear"></span>
-                    <span>
-                        <button onclick="changeMonth(-1)">&lt;</button>
-                        <button onclick="changeMonth(1)">&gt;</button>
-                    </span>
-                </div>
-
-                <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
-                    <thead>
-                        <tr>
-                            <th>Κ</th><th>Δ</th><th>Τ</th><th>Τ</th><th>Π</th><th>Π</th><th>Σ</th>
-                        </tr>
-                    </thead>
-                    <tbody id="calendarBody"></tbody>
-                </table>
+            <div class="nav-item" onclick="toggleLogoutMenu(event)" title="Λογαριασμός" style="cursor:pointer; margin-bottom:0;">
+                <img src="../icons/account.svg" class="nav-icon">
             </div>
         </div>
-
-        <div class="today-section">
-            <div class="today-title">Today</div>
-            
-            <div class="event-item">
-                <div class="event-info">
-                    <h3>Εταιρεία ΑΒΓ ΑΕ</h3>
-                    <p>17:30</p>
-                </div>
-                <div class="mini-hub">Mini hub</div>
-            </div>
-
-            <div class="event-item">
-                <div class="event-info">
-                    <h3>Γιάννης Παπαδόπουλος</h3>
-                    <p>Ώρα: 19:00</p>
-                </div>
-            </div>
-        </div>
-
     </div>
-    <script src="../js/homepageScript.js"></script>
+
+    <!-- MAIN CONTENT -->
+    <main class="dashboard-content">
+        <header class="header-section">
+            <h1>Γεια σου, <span>Theokal</span> 👋</h1>
+            <p>Αυτή είναι η εικόνα της επιχείρησής σου σήμερα.</p>
+        </header>
+
+        <section class="dashboard-grid">
+            <!-- Αριστερή Στήλη: Alerts -->
+            <div class="alerts-column">
+                <div class="alert-bubble inbox">
+                    <img src="../icons/unread.svg" class="bubble-icon">
+                    <div class="bubble-text">
+                        <strong>5 νέα αιτήματα</strong>
+                        <span>Περιμένουν έγκριση</span>
+                    </div>
+                </div>
+                <div class="alert-bubble events">
+                    <img src="../icons/edit.svg" class="bubble-icon">
+                    <div class="bubble-text">
+                        <strong>3 εκκρεμή events</strong>
+                        <span>Χρειάζονται προσφορά</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Δεξιά Στήλη: Today's Schedule -->
+            <div class="schedule-card">
+                <div class="card-header">
+                    <h2>Σήμερα</h2>
+                    <span class="date-badge">2 Μαΐου 2026</span>
+                </div>
+                
+                <div class="schedule-list">
+                    <div class="event-entry confirmed">
+                        <span class="time">17:30</span>
+                        <div class="details">
+                            <h3>Εταιρεία ΑΒΓ ΑΕ</h3>
+                            <p>Επιβεβαιωμένη Κράτηση</p>
+                        </div>
+                    </div>
+                    <div class="event-entry pending">
+                        <span class="time">19:00</span>
+                        <div class="details">
+                            <h3>Γιάννης Παπαδόπουλος</h3>
+                            <p>Αναμονή Προσφοράς</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script src="../js/script.js"></script>
 
 </body>
 </html>
