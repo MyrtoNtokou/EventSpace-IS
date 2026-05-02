@@ -1,7 +1,36 @@
+ * {
+  font-family: 'Inter', sans-serif;
+}
+  
+body {
+  background: #faf9f7;
+  color: #1d1d1f;
+  font-size: 16px;
+}
+ 
+/* ── ΤΙΤΛΟΣ ── */
+h1 {
+  background: #f0faf1;
+  color: #248a3d;
+  border: 1.5px solid #34c759;
+  border-radius: 12px;
+  padding: 12px 32px;
+  display: inline-block;
+}
+ 
+.subtitle {
+  color: #6e6e73;
+  font-size: 1rem;
+  font-weight: 400;
+}
+ 
+ 
  .card-text {
-      font-size: 1rem;
-      line-height: 1.6;
+      font-size: 0.95rem;  
+      line-height: 1.75;       
+      color: #3a3a3c;          
       text-align: justify;
+      margin-bottom: 14px;
     }
     .cal-card {
       background: #fff;
