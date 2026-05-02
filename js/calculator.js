@@ -1,18 +1,62 @@
-// Μορφοποίηση Ημερομηνίας ΗΗ/ΜΜ/ΕΕΕΕ
 document.getElementById('eventDate').addEventListener('input', function (e) {
     let v = e.target.value.replace(/\D/g, '').slice(0, 8);
-    if (v.length >= 5) v = v.slice(0, 2) + '/' + v.slice(2, 4) + '/' + v.slice(4);
-    else if (v.length >= 3) v = v.slice(0, 2) + '/' + v.slice(2);
+
+    if (v.length >= 1 && parseInt(v[0]) > 3) {
+        v = "";
+    }
+    if (v.length >= 2) {
+        let day = parseInt(v.slice(0, 2));
+        if (day > 31 || day === 0) {
+            v = v.slice(0, 1);
+        }
+    }
+
+    if (v.length >= 3 && parseInt(v[2]) > 1) {
+        v = v.slice(0, 2);
+    }
+    if (v.length >= 4) {
+        let month = parseInt(v.slice(2, 4));
+        if (month > 12 || month === 0) {
+            v = v.slice(0, 3);
+        }
+    }
+
+    if (v.length >= 5) {
+        v = v.slice(0, 2) + '/' + v.slice(2, 4) + '/' + v.slice(4);
+    } else if (v.length >= 3) {
+        v = v.slice(0, 2) + '/' + v.slice(2);
+    }
+    
     e.target.value = v;
 });
 
-// Μορφοποίηση Ώρας 00:00
 function formatTime(id) {
     const element = document.getElementById(id);
     if (element) {
         element.addEventListener('input', function (e) {
-            let v = e.target.value.replace(/\D/g, '').slice(0, 4);
-            if (v.length >= 3) v = v.slice(0, 2) + ':' + v.slice(2);
+            let cursorColor = e.target.selectionStart;
+            let rawValue = e.target.value.replace(/\D/g, '');
+            let v = rawValue.slice(0, 4);
+
+            if (v.length >= 1 && parseInt(v[0]) > 2) {
+                v = "";
+            }
+
+            if (v.length >= 2) {
+                let hours = parseInt(v.slice(0, 2));
+                if (hours > 23) {
+                    v = v.slice(0, 1);
+                }
+            }
+
+            if (v.length >= 3 && parseInt(v[2]) > 5) {
+                v = v.slice(0, 2);
+            }
+
+            if (v.length >= 3) {
+                v = v.slice(0, 2) + ':' + v.slice(2);
+            }
+            
             e.target.value = v;
         });
     }
@@ -27,7 +71,6 @@ function calculateOffer() {
     const orgType = document.getElementById('orgType').value;
     const resultField = document.getElementById('finalAmount');
 
-    // 1. Έλεγχος αν έχουν συμπληρωθεί οι ώρες
     if (!startTime || !endTime) {
         alert("Παρακαλώ συμπληρώστε την ώρα έναρξης και λήξης.");
         return;
