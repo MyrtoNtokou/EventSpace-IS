@@ -43,26 +43,26 @@
             </div>
 
             <div class="mb-3">
-                <label class="form-label">Ώρα διάρκειας (08:00 - 20:00):</label>
+                <label class="form-label">Ώρα διάρκειας (09:30 - 19:00):</label>
                 <div class="row g-3 align-items-center">
                     <div class="col-auto">
                         <label for="timeFrom" class="col-form-label">Από</label>
                     </div>
                     <div class="col-auto">
-                        <input type="time" class="form-control" id="timeFrom" name="timeFrom" min="08:00" max="20:00" required>
+                        <input type="time" class="form-control" id="timeFrom" name="timeFrom" min="09:30" max="19:00" required>
                     </div>
                     <div class="col-auto">
                         <label for="timeTo" class="col-form-label">Μέχρι</label>
                     </div>
                     <div class="col-auto">
-                        <input type="time" class="form-control" id="timeTo" name="timeTo" min="08:00" max="20:00" required>
+                        <input type="time" class="form-control" id="timeTo" name="timeTo" min="09:30" max="19:00" required>
                     </div>
                 </div>
             </div>
 
             <div class="mb-3">
-                <label for="peopleCount" class="form-label">Αριθμός ατόμων:</label>
-                <input type="number" class="form-control" id="peopleCount" name="peopleCount" min="1" required>
+                <label for="peopleCount" class="form-label">Αριθμός ατόμων (έως 70):</label>
+                <input type="number" class="form-control" id="peopleCount" name="peopleCount" min="1" max="70" step="1" required>
             </div>
 
             <div class="mb-3">
