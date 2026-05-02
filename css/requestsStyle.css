@@ -44,10 +44,6 @@ body {
     border-radius: 10px;
 }
 
-.list-column::-webkit-scrollbar-thumb:hover {
-    background: var(--primary); /* Γίνεται γαλάζιο όταν πας από πάνω */
-}
-
 .list-column h2 { 
     font-weight: 700; 
     color: #51818D; 

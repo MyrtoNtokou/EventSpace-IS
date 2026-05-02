@@ -52,23 +52,37 @@ function goToToday() {
     renderCalendar();
 }
 
-function openEventModal(day, existingEvent) {
+function openEventModal(day, dateKey) {
     const modal = document.getElementById('eventModal');
     const form = document.getElementById('eventForm');
     
     modal.classList.remove('hidden');
-    form.reset(); // Καθαρίζει όλα τα inputs και τα checkboxes
+    form.reset(); // Καθαρίζει όλα τα inputs και τα checkboxes για νέα κράτηση
     
-    document.getElementById('eventDate').value = `${day}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}`;
-    
-    if (existingEvent) {
-        document.getElementById('modalTitle').innerText = "Στοιχεία: " + existingEvent;
-        // Εδώ στο μέλλον θα φορτώνεις τα δεδομένα του GreenPlanet
+    // Ορίζουμε την ημερομηνία και αποθηκεύουμε το κλειδί στο dataset για την αποθήκευση
+    const dateInput = document.getElementById('eventDate');
+    dateInput.value = `${day}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}`;
+    dateInput.dataset.key = dateKey; 
+
+    // Αν το κλειδί (π.χ. "10-9-2026") υπάρχει στο αντικείμενο events, γέμισε τη φόρμα
+    if (events[dateKey]) {
+        const data = events[dateKey];
+        document.getElementById('modalTitle').innerText = "Στοιχεία: " + data.providerName;
+        
+        // Γεμίζουμε δυναμικά τα πεδία χρησιμοποιώντας τα δεδομένα από το αντικείμενο events
+        document.getElementById('providerName').value = data.providerName || '';
+        document.getElementById('providerType').value = data.providerType || '';
+        document.getElementById('eventTime').value = data.eventTime || '';
+        document.getElementById('peopleCount').value = data.peopleCount || '';
+        document.getElementById('childCare').checked = data.childCare || false;
+        document.getElementById('eventDescription').value = data.eventDescription || '';
+        document.getElementById('contactName').value = data.contactName || '';
+        document.getElementById('contactPhone').value = data.contactPhone || '';
+        document.getElementById('contactEmail').value = data.contactEmail || '';
     } else {
         document.getElementById('modalTitle').innerText = "Νέα Κράτηση";
     }
 }
-
 function closeModal() {
     document.getElementById('eventModal').classList.add('hidden');
 }
