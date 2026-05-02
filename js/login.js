@@ -7,8 +7,8 @@ function checkLogin() {
     const pass = document.getElementById('password').value.trim();
 
     if (user === "" || pass === "") {
-        alert("Παρακαλώ συμπληρώστε και το Username και το Password!");
+        alert("Παρακαλώ συμπληρώστε και το Username και το Password");
     } else {
-        window.location.href = "homepage.html";
+        window.location.href = "../pages/homepage.html";
     }
 }
