@@ -1,6 +1,43 @@
 /* calendarStyle.css */
 body { background-color: var(--bg-main) !important; overflow: hidden; }
 
+#calendarGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 ίσες στήλες πάντα! */
+    width: 100%;
+}
+
+.today-circle {
+    background-color: var(--accent-color); /* Το χρώμα του κύκλου */
+    color: white !important;               /* Λευκό νούμερο */
+    width: 30px;                           /* Σταθερό πλάτος */
+    height: 30px;                          /* Σταθερό ύψος */
+    display: inline-flex;                  /* Για να κεντραριστεί το νούμερο */
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;                    /* Αυτό κάνει τον κύκλο */
+    font-weight: bold;
+    opacity: 1 !important;
+}
+
+.btn-today {
+    background-color: var(--white);
+    border: 1.5px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: all 0.2s ease;
+}
+
+.btn-today:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
 .calendar-card {
     background: var(--white);
     border-radius: var(--border-radius-lg); /* 40px */
@@ -20,11 +57,18 @@ body { background-color: var(--bg-main) !important; overflow: hidden; }
 
 /* Τα κουτάκια των ημερών */
 .calendar-day {
-    height: 100px;
-    border: 1px solid #fcfaf7; /* Πολύ απαλό κρεμ-γκρι */
+    height: 110px; /* Σταθερό ύψος */
+    border: 1px solid #EAEAEA; /* Εδώ αλλάζεις το χρώμα των γραμμών[cite: 7] */
     padding: 10px;
-    position: relative;
-    transition: all 0.2s ease;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.calendar-day.empty {
+    background-color: #f9f9f9; /* Ελαφρώς διαφορετικό χρώμα για να φαίνονται άδεια */
+    opacity: 0.5;
 }
 
 .calendar-day:hover { background-color: #fdfdfd; }
@@ -32,12 +76,11 @@ body { background-color: var(--bg-main) !important; overflow: hidden; }
 .day-number {
     font-size: 0.9rem;
     color: var(--text-dark);
-    opacity: 0.4;
 }
 
 /* Τα κουμπιά πλοήγησης */
 .btn-nav {
-    background: var(--bg-main);
+    background: #d8e9ee;
     border: none;
     width: 40px;
     height: 40px;
@@ -61,3 +104,84 @@ body { background-color: var(--bg-main) !important; overflow: hidden; }
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 2000;
+}
+.modal-overlay.hidden { display: none; }
+
+.modal-card {
+    background: white;
+    padding: 40px;
+    border-radius: 40px; /* Όπως το design σου */
+    width: 90%; max-width: 600px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+}
+.modal-header { display: flex; justify-content: space-between; margin-bottom: 20px; }
+.modal-header h2 { color: #4A4A4A; font-size: 1.8rem; }
+.close-modal { cursor: pointer; font-size: 2rem; opacity: 0.5; }
+
+label { display: block; font-size: 0.75rem; color: #999; font-weight: bold; margin-bottom: 5px; margin-top: 15px; }
+input, textarea {
+    width: 100%; border: 2px solid #f0f0f0; border-radius: 15px;
+    padding: 12px; font-family: inherit; font-weight: 600;
+}
+.btn-primary { background: #6DAFBD; color: white; border: none; padding: 12px 25px; border-radius: 20px; cursor: pointer; }
+.btn-secondary { background: #f5f5f5; border: none; padding: 12px 25px; border-radius: 20px; cursor: pointer; margin-right: 10px; }
+
+/* Layout του Modal */
+.modal-body-scroll {
+    max-height: 70vh; /* Το ύψος που θα πιάνει πριν εμφανιστεί το scroll */
+    overflow-y: auto;
+    padding-right: 15px;
+}
+
+/* Custom Scrollbar */
+.modal-body-scroll::-webkit-scrollbar { width: 6px; }
+.modal-body-scroll::-webkit-scrollbar-thumb { background: #EAEAEA; border-radius: 10px; }
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+.section-divider {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.check-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-top: 8px !important;
+    cursor: pointer;
+}
+
+.check-item input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent-color);
+}
+
+.align-center { align-items: center; }

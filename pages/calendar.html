@@ -3,10 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Ημερολόγιο - EventSpace</title>
-    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- FullCalendar CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/sidebar.css">
     <link rel="stylesheet" href="../css/calendarStyle.css">
@@ -35,10 +32,11 @@
             <!-- Header Ημερολογίου -->
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2 id="monthDisplay" class="m-0" style="color: var(--accent-dark-color); font-weight: 700;">Μάιος 2026</h2>
-                <div>
-                    <button class="btn-nav" onclick="changeMonth(-1)">&#10094;</button>
-                    <button class="btn-nav" onclick="changeMonth(1)">&#10095;</button>
-                </div>
+                    <div>
+                        <button class="btn-today" onclick="goToToday()">Σήμερα</button>
+                        <button class="btn-nav" onclick="changeMonth(-1)">&#10094;</button>
+                        <button class="btn-nav" onclick="changeMonth(1)">&#10095;</button>
+                    </div>
             </div>
 
             <!-- Επικεφαλίδες Ημερών -->
@@ -54,6 +52,94 @@
 
             <!-- Το πλέγμα των ημερών θα μπει εδώ από τη JS -->
             <div id="calendarGrid" class="row g-0"></div>
+        </div>
+    </div>
+
+    <div id="eventModal" class="modal-overlay hidden">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h2 id="modalTitle">Στοιχεία Εκδήλωσης</h2>
+                <span class="close-modal" onclick="closeModal()">&times;</span>
+            </div>
+            
+            <div class="modal-body-scroll">
+                <form id="eventForm">
+                    <!-- Βασικά Στοιχεία -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>ΟΝΟΜΑ ΦΟΡΕΑ</label>
+                            <input type="text" id="providerName">
+                        </div>
+                        <div class="form-group">
+                            <label>ΕΙΔΟΣ ΦΟΡΕΑ</label>
+                            <input type="text" id="providerType">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>ΗΜΕΡΟΜΗΝΙΑ</label>
+                            <input type="text" id="eventDate" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>ΩΡΑ</label>
+                            <input type="text" id="eventTime">
+                        </div>
+                    </div>
+
+                    <div class="form-row align-center">
+                        <div class="form-group">
+                            <label>ΑΡΙΘΜΟΣ ΑΤΟΜΩΝ</label>
+                            <input type="number" id="peopleCount">
+                        </div>
+                        <div class="form-group check-group">
+                            <label>ΑΠΑΣΧΟΛΗΣΗ ΠΑΙΔΙΩΝ</label>
+                            <input type="checkbox" class="custom-tick" id="childCare">
+                        </div>
+                    </div>
+
+                    <!-- Στοιχεία Επικοινωνίας -->
+                    <h3 class="section-divider">Στοιχεία Επικοινωνίας</h3>
+                    <div class="form-group">
+                        <label>ΟΝΟΜΑΤΕΠΩΝΥΜΟ ΥΠΕΥΘΥΝΟΥ</label>
+                        <input type="text" id="contactName">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>ΤΗΛΕΦΩΝΟ</label>
+                            <input type="tel" id="contactPhone">
+                        </div>
+                        <div class="form-group">
+                            <label>EMAIL</label>
+                            <input type="email" id="contactEmail">
+                        </div>
+                    </div>
+
+                    <!-- Λεπτομέρειες & Διάταξη -->
+                    <h3 class="section-divider">Λεπτομέρειες</h3>
+                    <div class="details-grid">
+                        <div class="details-column">
+                            <label>ΔΙΑΤΑΞΗ (Επιλογή 1)</label>
+                            <label class="check-item"><input type="radio" name="layout" value="theatrical"> Θεατρική</label>
+                            <label class="check-item"><input type="radio" name="layout" value="circle"> Κύκλος</label>
+                            <label class="check-item"><input type="radio" name="layout" value="p-shape"> Π με τραπέζια</label>
+                            <label class="check-item"><input type="radio" name="layout" value="school"> Σχολική</label>
+                        </div>
+                        <div class="details-column">
+                            <label>ΕΞΟΠΛΙΣΜΟΣ / ΠΑΡΟΧΕΣ</label>
+                            <label class="check-item"><input type="checkbox" value="monitor"> Μόνιτορ</label>
+                            <label class="check-item"><input type="checkbox" value="mic"> Μικροφωνική</label>
+                            <label class="check-item"><input type="checkbox" value="catering"> Catering</label>
+                            <label class="check-item"><input type="checkbox" value="desk"> Registration Desk</label>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn-secondary" onclick="closeModal()">Ακύρωση</button>
+                        <button type="submit" class="btn-primary">Αποθήκευση</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 

@@ -1,4 +1,4 @@
-let currentDate = new Date(2026, 4, 1); // Μάιος 2026
+let currentDate = new Date();
 
 function renderCalendar() {
     const grid = document.getElementById('calendarGrid');
@@ -17,15 +17,22 @@ function renderCalendar() {
 
     // 1. Κενά για τις μέρες του προηγούμενου μήνα
     for (let i = 0; i < startOffset; i++) {
-        grid.innerHTML += `<div class="col calendar-day" style="opacity:0.2"></div>`;
+        grid.innerHTML += `<div class="calendar-day empty"></div>`;
     }
 
     // 2. Οι μέρες του μήνα
     for (let day = 1; day <= daysInMonth; day++) {
+        const today = new Date();
+        const isToday = day === today.getDate() && 
+                        currentDate.getMonth() === today.getMonth() && 
+                        currentDate.getFullYear() === today.getFullYear();
+
+        let todayClass = isToday ? 'today-circle' : '';
         let eventHtml = (day === 10) ? `<span class="event-tag">GreenPlanet Event</span>` : '';
+
         grid.innerHTML += `
-            <div class="col calendar-day" style="flex: 0 0 14.28%;">
-                <span class="day-number">${day}</span>
+            <div class="calendar-day" onclick="openEventModal(${day}, '${eventHtml ? 'GreenPlanet' : ''}')">
+                <span class="day-number ${todayClass}">${day}</span>
                 ${eventHtml}
             </div>`;
     }
@@ -36,4 +43,38 @@ function changeMonth(diff) {
     renderCalendar();
 }
 
-renderCalendar();σ
+renderCalendar();
+
+function goToToday() {
+    // Επαναφέρει την ημερομηνία στο "τώρα"
+    currentDate = new Date();
+    // Ξανασχεδιάζει το ημερολόγιο για να δείξει τον τρέχοντα μήνα
+    renderCalendar();
+}
+
+function openEventModal(day, existingEvent) {
+    const modal = document.getElementById('eventModal');
+    const form = document.getElementById('eventForm');
+    
+    modal.classList.remove('hidden');
+    form.reset(); // Καθαρίζει όλα τα inputs και τα checkboxes
+    
+    document.getElementById('eventDate').value = `${day}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}`;
+    
+    if (existingEvent) {
+        document.getElementById('modalTitle').innerText = "Στοιχεία: " + existingEvent;
+        // Εδώ στο μέλλον θα φορτώνεις τα δεδομένα του GreenPlanet
+    } else {
+        document.getElementById('modalTitle').innerText = "Νέα Κράτηση";
+    }
+}
+
+function closeModal() {
+    document.getElementById('eventModal').classList.add('hidden');
+}
+
+// Κλείσιμο αν πατήσει έξω από το modal
+window.onclick = function(event) {
+    const modal = document.getElementById('eventModal');
+    if (event.target == modal) closeModal();
+}
