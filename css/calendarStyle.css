@@ -93,7 +93,7 @@ body { background-color: var(--bg-main) !important; overflow: hidden; }
 
 /* Event Style - Σαν μικρά "χοντρούλικα" κουμπιά */
 .event-tag {
-    background: var(--accent-color);
+    background: #6bbaa3;
     color: white;
     font-size: 0.7rem;
     padding: 4px 8px;
@@ -201,6 +201,12 @@ input, textarea {
     background-repeat: no-repeat;
     background-position: right 15px center;
     background-size: 15px;
+}
+
+/* Στυλ για το textarea */
+textarea {
+    resize: none; /* Απαγόρευση αλλαγής μεγέθους από τον χρήστη */
+    font-family: inherit;
 }
 
 .input-select:focus {
