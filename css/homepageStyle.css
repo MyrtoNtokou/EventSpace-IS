@@ -1,26 +1,5 @@
 /* homepageStyle.css */
 
-/* 1. Layout Structure */
-.dashboard-body {
-    background-color: #F2EDE4; /* Το κρεμ σου */
-    display: flex;
-    height: 100vh;
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-}
-
-.sidebar-v2 {
-    width: 120px;
-    background: white;
-    margin: 20px;
-    border-radius: 40px; /* Χοντρούλικες καμπύλες[cite: 1] */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 0;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-}
-
 .dashboard-content {
     flex-grow: 1;
     padding: 40px 60px 40px 60px;
@@ -80,8 +59,9 @@
 .card-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
     margin-bottom: 40px;
+    width: 100%;
 }
 
 .date-badge {
@@ -93,7 +73,7 @@
 }
 
 .event-entry {
-    background: #fdfbf9;
+    background: #d8e9ee;
     padding: 25px;
     border-radius: 30px;
     display: flex;
