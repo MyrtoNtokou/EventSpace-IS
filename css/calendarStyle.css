@@ -3,19 +3,19 @@ body { background-color: var(--bg-main) !important; overflow: hidden; }
 
 #calendarGrid {
     display: grid;
-    grid-template-columns: repeat(7, 1fr); /* 7 ίσες στήλες πάντα! */
+    grid-template-columns: repeat(7, 1fr);
     width: 100%;
 }
 
 .today-circle {
-    background-color: var(--accent-color); /* Το χρώμα του κύκλου */
-    color: white !important;               /* Λευκό νούμερο */
-    width: 30px;                           /* Σταθερό πλάτος */
-    height: 30px;                          /* Σταθερό ύψος */
-    display: inline-flex;                  /* Για να κεντραριστεί το νούμερο */
+    background-color: var(--accent-color);
+    color: white !important;
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;                    /* Αυτό κάνει τον κύκλο */
+    border-radius: 50%;
     font-weight: bold;
     opacity: 1 !important;
 }
@@ -40,7 +40,7 @@ body { background-color: var(--bg-main) !important; overflow: hidden; }
 
 .calendar-card {
     background: var(--white);
-    border-radius: var(--border-radius-lg); /* 40px */
+    border-radius: var(--border-radius-lg);
     padding: 40px;
     width: 90%;
     max-width: 1000px;
@@ -55,10 +55,9 @@ body { background-color: var(--bg-main) !important; overflow: hidden; }
     margin-bottom: 15px;
 }
 
-/* Τα κουτάκια των ημερών */
 .calendar-day {
-    height: 110px; /* Σταθερό ύψος */
-    border: 1px solid #EAEAEA; /* Εδώ αλλάζεις το χρώμα των γραμμών[cite: 7] */
+    height: 110px;
+    border: 1px solid #EAEAEA;
     padding: 10px;
     background-color: white;
     display: flex;
@@ -67,7 +66,7 @@ body { background-color: var(--bg-main) !important; overflow: hidden; }
 }
 
 .calendar-day.empty {
-    background-color: #f9f9f9; /* Ελαφρώς διαφορετικό χρώμα για να φαίνονται άδεια */
+    background-color: #f9f9f9;
     opacity: 0.5;
 }
 
@@ -91,7 +90,6 @@ body { background-color: var(--bg-main) !important; overflow: hidden; }
     margin-left: 5px;
 }
 
-/* Event Style - Σαν μικρά "χοντρούλικα" κουμπιά */
 .event-tag {
     background: #6bbaa3;
     color: white;
@@ -117,7 +115,7 @@ body { background-color: var(--bg-main) !important; overflow: hidden; }
 .modal-card {
     background: white;
     padding: 40px;
-    border-radius: 40px; /* Όπως το design σου */
+    border-radius: 40px;
     width: 90%; max-width: 600px;
     box-shadow: 0 20px 60px rgba(0,0,0,0.1);
 }
@@ -133,9 +131,8 @@ input, textarea {
 .btn-primary { background: #6DAFBD; color: white; border: none; padding: 12px 25px; border-radius: 20px; cursor: pointer; }
 .btn-secondary { background: #f5f5f5; border: none; padding: 12px 25px; border-radius: 20px; cursor: pointer; margin-right: 10px; }
 
-/* Layout του Modal */
 .modal-body-scroll {
-    max-height: 70vh; /* Το ύψος που θα πιάνει πριν εμφανιστεί το scroll */
+    max-height: 70vh;
     overflow-y: auto;
     padding-right: 15px;
 }
@@ -196,16 +193,15 @@ input, textarea {
     background-color: white;
     outline: none;
     cursor: pointer;
-    appearance: none; /* Αφαιρεί το default βελάκι του browser για να βάλουμε δικό μας αν θέλουμε */
+    appearance: none;
     background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236DAFBD' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 15px center;
     background-size: 15px;
 }
 
-/* Στυλ για το textarea */
 textarea {
-    resize: none; /* Απαγόρευση αλλαγής μεγέθους από τον χρήστη */
+    resize: none;
     font-family: inherit;
 }
 
