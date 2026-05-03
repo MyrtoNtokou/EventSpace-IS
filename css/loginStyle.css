@@ -2,25 +2,74 @@
 
 .login-wrapper {
     width: 100%;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Χρησιμοποιούμε το background που όρισες στο global */
     background-color: var(--bg-main); 
 }
 
 .login-container {
     background: var(--white);
-    /* Χρησιμοποιούμε το μεγάλο radius (40px) που έχεις στο root */
+
     border-radius: var(--border-radius-lg); 
-    padding: 50px;
+    padding: 60px 50px;
     width: 100%;
-    max-width: 400px;
+    max-width: 450px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.login-container h2 {
+    color: var(--accent-color);
+    font-size: 2rem;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-align: center;
+}
+
+
+.form-group {
+    margin-bottom: 20px;
     text-align: left;
 }
 
-/* Το κουμπί Login προσαρμοσμένο στα accent colors σου */
+.field-title {
+    display: block;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+}
+
+.input-full {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    background-color: #fff;
+    font-size: 1rem;
+    outline: none;
+    box-sizing: border-box;
+}
+
+/* Το checkbox section */
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.checkbox-item input {
+    margin-right: 12px;
+    width: 20px;
+    height: 20px;
+    accent-color: var(--accent-color);
+    cursor: pointer;
+}
+
 .login-submit-btn {
     display: block;
     width: 100%;
@@ -29,18 +78,17 @@
     color: var(--white);
     text-align: center;
     text-decoration: none;
-    border-radius: var(--border-radius-md); /* 10px */
+    border-radius: var(--border-radius-md);
     font-weight: 700;
     font-size: 1.1rem;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .login-submit-btn:hover {
-    background-color: var(--accent-dark-color); /* Το σκούρο γαλάζιο σου[cite: 4] */
+    background-color: var(--accent-dark-color);
     transform: translateY(-2px);
 }
 
-/* Ευθυγράμμιση για το checkbox σύμφωνα με το style.css[cite: 4] */
 .checkbox-item input {
     margin-right: 12px;
     width: 20px;
