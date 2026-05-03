@@ -30,7 +30,7 @@ body {
     padding-right: 20px;
 }
 
-/* Στυλ για το scrollbar της λίστας */
+
 .list-column::-webkit-scrollbar {
     width: 6px;
 }
@@ -40,7 +40,7 @@ body {
 }
 
 .list-column::-webkit-scrollbar-thumb {
-    background: #d1d5db; /* Απαλό γκρι */
+    background: #d1d5db; 
     border-radius: 10px;
 }
 
@@ -51,7 +51,7 @@ body {
     padding-left: 10px; 
 }
 
-/* Η κάρτα τώρα λειτουργεί ως στήλη για να έχουμε τη γραμμή 1 και τη γραμμή 2 */
+
 .card {
     display: flex;
     flex-direction: column; 
@@ -65,18 +65,17 @@ body {
     cursor: pointer;
 }
 
-/* Το container που κρατάει τα πάντα μέσα στην κάρτα */
+
 .card-content {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-/* Η ΠΡΩΤΗ ΓΡΑΜΜΗ: Εδώ γίνεται η μαγεία για την ευθυγράμμιση */
 .card-main-row {
     display: flex;
-    justify-content: space-between; /* Σπρώχνει το badge δεξιά και το όνομα αριστερά */
-    align-items: center;            /* Τα βάζει στην ίδια ευθεία οριζόντια */
+    justify-content: space-between; 
+    align-items: center;            
     width: 100%;
 }
 
@@ -89,10 +88,10 @@ body {
 .card-subtext {
     font-size: 0.85rem;
     color: var(--text-muted);
-    margin-top: 4px; /* Μικρή απόσταση από την πάνω γραμμή */
+    margin-top: 4px; 
 }
 
-/* Το badge πλέον δεν χρειάζεται περίεργα margins */
+
 .submission-badge {
     font-size: 0.7rem;
     background: var(--bg);
@@ -224,7 +223,7 @@ body {
     align-items: center;
     gap: 10px;
     padding: 12px 24px;
-    border-radius: 25px; /* Στρογγυλεμένα όπως στην εικόνα */
+    border-radius: 25px; 
     border: none;
     font-weight: 600;
     font-family: 'Inter', sans-serif;
@@ -233,19 +232,62 @@ body {
     font-size: 0.95rem;
 }
 
-/* Συγκεκριμένα χρώματα (από την αρχική φιλοσοφία) */
+
 .btn-accept {
-    background-color: #ecfdf5; /* Απαλό πράσινο */
+    background-color: #ecfdf5; 
     color: #10b981;
 }
 
 .btn-reject {
-    background-color: #fef2f2; /* Απαλό κόκκινο */
+    background-color: #fef2f2; 
     color: #ef4444;
 }
 
-/* Hover εφέ για να "ζωντανεύουν" */
+
 .btn-action:hover {
     transform: translateY(-2px);
     filter: brightness(0.95);
+}
+
+
+@media (max-width: 768px) {
+  .details-column { display: none; } 
+
+  .mobile-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 1000;
+    display: flex;
+    align-items: flex-end; 
+  }
+
+  .mobile-modal-box {
+    background: #fff;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    border-radius: 20px 20px 0 0;
+    padding: 24px;
+    position: relative;
+    animation: slideUp 0.3s ease;
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(100%); }
+    to   { transform: translateY(0); }
+  }
+
+  .modal-close-btn {
+    position: absolute;
+    top: 16px; right: 16px;
+    background: #f1f1f1;
+    border: none;
+    border-radius: 50%;
+    width: 32px; height: 32px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  .hidden { display: none !important; }
 }

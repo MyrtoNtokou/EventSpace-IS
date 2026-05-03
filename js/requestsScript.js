@@ -6,7 +6,7 @@ function openRequest(id, companyName, type, date, time, phone, subDate, subTime,
     document.getElementById('details-content').classList.remove('hidden');
 
     // 2. Ενημέρωση των στοιχείων Φορέα
-    document.getElementById('det-name').innerText = companyName; // Το όνομα της εταιρείας πάνω-πάνω
+    document.getElementById('det-name').innerText = companyName; 
     document.getElementById('det-type').innerText = type;
     document.getElementById('det-sub-time').innerText = "Υποβολή: " + subDate + " " + subTime;
 
@@ -17,19 +17,25 @@ function openRequest(id, companyName, type, date, time, phone, subDate, subTime,
     // 4. Άτομα & Checkbox
     document.getElementById('det-guests').innerText = guests;
     document.getElementById('det-kids-service').checked = kids;
-    document.getElementById('det-kids-service').disabled = true; // Κλειδώνει το τικ[cite: 5]
+    document.getElementById('det-kids-service').disabled = true; 
 
-    // 5. Περιεχόμενο (Οι δύο προτάσεις)
-    document.getElementById('det-content').innerText = description; // Εδώ μπαίνει το μεγάλο κείμενο[cite: 3]
+    // 5. Περιεχόμενο 
+    document.getElementById('det-content').innerText = description; 
 
-    // 6. Στοιχεία Επικοινωνίας (Το όνομα του ανθρώπου)
-    document.getElementById('det-fullname').innerText = contactPerson; // Το ονοματεπώνυμο υπευθύνου[cite: 3]
+    // 6. Στοιχεία Επικοινωνίας 
+    document.getElementById('det-fullname').innerText = contactPerson; 
     document.getElementById('det-phone').innerText = phone;
     document.getElementById('det-email').innerText = email;
 
     // 7. Διαχείριση "Selected" κλάσης στις κάρτες
     document.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
     document.getElementById(id).classList.add('selected');
+
+     if (isMobile()) {
+        const content = document.getElementById('details-content').innerHTML;
+        document.getElementById('mobile-modal-content').innerHTML = content;
+        document.getElementById('mobile-modal').classList.remove('hidden');
+    }
 
 }
 
@@ -44,7 +50,7 @@ function removeReq(event, id) {
 }
 
 function handleFinalize(status) {
-    // 1. Εντοπίζουμε την κάρτα που είναι επιλεγμένη (έχει την κλάση .selected)
+    // 1. Εντοπίζουμε την κάρτα που είναι επιλεγμένη 
     const selectedCard = document.querySelector('.card.selected');
     
     if (!selectedCard) {
@@ -64,7 +70,7 @@ function handleFinalize(status) {
     selectedCard.style.opacity = "0";
     selectedCard.style.transform = "translateX(-20px)";
 
-    // Περιμένουμε να τελειώσει το εφέ (400ms) και μετά το αφαιρούμε τελείως
+    
     setTimeout(() => {
         selectedCard.remove();
         
@@ -79,4 +85,12 @@ function handleFinalize(status) {
                 '<p style="text-align:center; padding:20px; opacity:0.5;">Δεν υπάρχουν άλλα αιτήματα.</p>';
         }
     }, 400);
+}
+
+function isMobile() {
+  return window.innerWidth <= 768;
+}
+
+function closeMobileModal() {
+  document.getElementById('mobile-modal').classList.add('hidden');
 }
