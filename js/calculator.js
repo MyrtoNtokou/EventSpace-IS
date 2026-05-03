@@ -135,22 +135,27 @@ document.getElementById('eventSelect').addEventListener('change', function() {
     const selectedEvent = this.value;
     const data = eventData[selectedEvent];
 
-    if (data) {
+  if (data) {
+
         document.getElementById('eventDate').value = data.date;
         document.getElementById('startTime').value = data.start;
         document.getElementById('endTime').value = data.end;
         document.getElementById('orgType').value = data.org;
         document.getElementById('communityPartner').checked = data.community;
         document.getElementById('minyHub').checked = data.miny;
+
+        document.getElementById('finalAmount').value = ""; 
+    } else {
+        document.getElementById('eventDate').value = "";
+        document.getElementById('startTime').value = "";
+        document.getElementById('endTime').value = "";
+        document.getElementById('orgType').value = "";
+        document.getElementById('communityPartner').checked = false;
+        document.getElementById('minyHub').checked = false;
         document.getElementById('finalAmount').value = "";
     }
-    
-    if (data) {
-        document.getElementById('eventDate').value = data.date;
-        document.getElementById('startTime').value = data.start;
-        document.getElementById('endTime').value = data.end;
-        document.getElementById('orgType').value = data.org;
-        document.getElementById('communityPartner').checked = data.community;
-        document.getElementById('minyHub').checked = data.miny;
-    }
+});
+
+document.getElementById('orgType').addEventListener('change', function () {
+    document.getElementById('finalAmount').value = "";
 });
