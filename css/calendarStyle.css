@@ -123,6 +123,17 @@ body { background-color: var(--bg-main) !important; overflow: hidden; }
 .modal-header h2 { color: #4A4A4A; font-size: 1.8rem; }
 .close-modal { cursor: pointer; font-size: 2rem; opacity: 0.5; }
 
+/* Στυλ για τα απενεργοποιημένα πεδία στο modal */
+#eventForm input:disabled, 
+#eventForm select:disabled, 
+#eventForm textarea:disabled {
+    background-color: #f8f9fa !important;
+    color: #666 !important;
+    cursor: not-allowed;
+    border-color: #eee !important;
+    opacity: 0.8;
+}
+
 label { display: block; font-size: 0.75rem; color: #999; font-weight: bold; margin-bottom: 5px; margin-top: 15px; }
 input, textarea {
     width: 100%; border: 2px solid #f0f0f0; border-radius: 15px;

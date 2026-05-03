@@ -69,17 +69,52 @@ function goToToday() {
 function openEventModal(day, existingEvent) {
     const modal = document.getElementById('eventModal');
     const form = document.getElementById('eventForm');
+    const submitBtn = form.querySelector('.btn-primary'); // Το κουμπί Αποθήκευση
     
     modal.classList.remove('hidden');
-    form.reset(); // Καθαρίζει όλα τα inputs και τα checkboxes
+    form.reset(); 
     
+    // Θέτουμε την ημερομηνία
     document.getElementById('eventDate').value = `${day}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}`;
     
     if (existingEvent) {
         document.getElementById('modalTitle').innerText = "Στοιχεία Εκδήλωσης";
+        
+        // Γεμίζουμε με ψεύτικα στοιχεία αναπαράστασης
+        document.getElementById('providerName').value = existingEvent;
+        document.getElementById('providerType').value = "mko";
+        document.getElementById('timeFrom').value = "10:00 - 14:00";
+        document.getElementById('peopleCount').value = "45";
+        document.getElementById('contactName').value = "Μαρία Παπαδοπούλου";
+        document.getElementById('contactPhone').value = "2101234567";
+        document.getElementById('contactEmail').value = "info@eventspace.gr";
+        document.getElementById('eventComments').value = "Απαιτείται πρόσβαση για ΑμεΑ και στήσιμο από τις 09:00.";
+        
+        // Επιλογή τυχαίων checkboxes/radios για την αναπαράσταση
+        document.getElementById('childCare').checked = true;
+        form.querySelector('input[name="layout"][value="theatrical"]').checked = true;
+        form.querySelectorAll('.details-column input[type="checkbox"]')[1].checked = true; // π.χ. Μικροφωνική
+
+        // Κλειδώνουμε τα πεδία για να μην τροποποιούνται
+        toggleFields(form, true);
+        submitBtn.style.display = 'none'; // Κρύβουμε το κουμπί αποθήκευσης
     } else {
         document.getElementById('modalTitle').innerText = "Νέα Κράτηση";
+        
+        // Ξεκλειδώνουμε τα πεδία για τη νέα κράτηση
+        toggleFields(form, false);
+        submitBtn.style.display = 'inline-block'; // Εμφανίζουμε το κουμπί
     }
+}
+
+// Βοηθητική συνάρτηση για κλείδωμα/ξεκλείδωμα πεδίων
+function toggleFields(form, isReadOnly) {
+    const inputs = form.querySelectorAll('input, select, textarea');
+    inputs.forEach(input => {
+        if (input.id !== 'eventDate') { // Η ημερομηνία είναι πάντα readonly στο modal σας
+            input.disabled = isReadOnly;
+        }
+    });
 }
 
 function closeModal() {
