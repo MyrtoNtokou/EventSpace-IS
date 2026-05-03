@@ -106,18 +106,26 @@ function calculateOffer() {
 
 const eventData = {
     "Event 1": {
-        date: "15/06/2024",
-        start: "10:00",
-        end: "14:00",
-        org: "Corporate",
+        date: "10/09/2026",
+        start: "11:00",
+        end: "15:00",
+        org: "ΜΚΟ",
         community: true,
-        miny: false
+        miny: true
     },
     "Event 2": {
-        date: "20/07/2024",
-        start: "18:00",
-        end: "21:00",
-        org: "ΜΚΟ",
+        date: "25/07/2026",
+        start: "16:00",
+        end: "19:00",
+        org: "Small Business",
+        community: false,
+        miny: false
+    },
+    "Event 3": {
+        date: "15/11/2026",
+        start: "09:00",
+        end: "12:00",
+        org: "Corporate",
         community: false,
         miny: true
     }
