@@ -20,6 +20,14 @@
 }
 
 
+#eventForm {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#submitBtn {
+  margin-bottom: 60px;
+}
 
 body {
     font-family: var(--font-main);
@@ -28,7 +36,7 @@ body {
     display: flex; /* Sidebar και Main-Wrapper δίπλα-δίπλα */
     height: 100vh;
     padding: var(--main-padding);
-    overflow: hidden;
+    overflow: auto;
 }
 
 .main-wrapper {
