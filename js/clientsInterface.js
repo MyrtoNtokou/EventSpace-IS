@@ -6,10 +6,21 @@ let year = today.getFullYear();
 let month = today.getMonth();
 let selectedDate = null;  // αποθηκεύει την επιλεγμένη ημερομηνία
 
+const availableCache = {};
+
 function generateAvailableDays(year, month) {
+  const key = `${year}-${month}`;
+  
+  if (availableCache[key]) {
+    return availableCache[key];
+  }
+
   const daysInMonth = new Date(year, month + 1, 0).getDate();
-  return Array.from({ length: daysInMonth }, (_, i) => i + 1)
-            .filter(() => Math.random() > 0.5);
+  const days = Array.from({ length: daysInMonth }, (_, i) => i + 1)
+                    .filter(() => Math.random() > 0.5);
+  
+  availableCache[key] = days;
+  return days;
 }
 
 //σελίδα φόρμας κράτησης
@@ -84,5 +95,6 @@ function changeMonth(dir) {
   label.classList.remove('text-success', 'fw-bold');
   renderCalendar();
 }
+
 
 renderCalendar();
