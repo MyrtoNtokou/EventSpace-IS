@@ -37,9 +37,10 @@
                 <h2>Υπολογισμός Προσφοράς</h2>
 
                 <div class="form-group">
+            
 
                     <label class="field-title" for="eventSelect">Επιλέξτε εκδήλωση:</label>
-                    <select id="eventSelect" class="input-full">
+                    <select class="input-select" id="orgType" name="orgType">
                         <option value="" disabled selected>-- Επιλογή Εκδήλωσης --</option>
                         <option value="Event 1">GreenPlanet</option>
                         <option value="Event 2">BrightStep AE</option>
@@ -73,11 +74,11 @@
 
                     <label class="field-title" for="orgType">Είδος φορέα:</label>
 
-                    <select id="orgType" class="input-full">
-                        <option value="" disabled selected>-- Επιλογή Φορέα --</option>
-                        <option value="ΜΚΟ">ΜΚΟ</option>
-                        <option value="Small Business">Μικρομεσαία Επιχείρηση</option>
-                        <option value="Corporate">Μεγάλη Επιχείρηση</option>
+                   <select class="input-select" id="orgType" name="orgType">
+                        <option value="">-- Επίλεξε Είδος Φορέα --</option>
+                        <option value="mko">ΜΚΟ</option>
+                        <option value="sme">Μικρομεσαία επιχείρηση</option>
+                        <option value="large">Μεγάλη επιχείρηση</option>
                     </select>
 
                 </div>
