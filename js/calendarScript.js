@@ -98,9 +98,8 @@ function openEventModal(day, existingEvent) {
         form.querySelector('input[name="layout"][value="theatrical"]').checked = true;
         form.querySelectorAll('.details-column input[type="checkbox"]')[1].checked = true; // π.χ. Μικροφωνική
 
-        // Κλειδώνουμε τα πεδία για να μην τροποποιούνται
-        toggleFields(form, true);
-        submitBtn.style.display = 'none'; // Κρύβουμε το κουμπί αποθήκευσης
+        toggleFields(form, false);
+        submitBtn.style.display = 'inline-block'; // Κρύβουμε το κουμπί αποθήκευσης
     } else {
         document.getElementById('modalTitle').innerText = "Νέα Κράτηση";
         
