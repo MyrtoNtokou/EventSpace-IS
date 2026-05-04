@@ -68,35 +68,44 @@
 
 @media (max-width: 768px) {
     .sidebar {
-        position: fixed !important;
-        top: 15px !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        width: 90% !important;
-        height: 70px !important;
-        min-width: unset !important;
-        flex-direction: row !important;
-        justify-content: space-around !important;
-        padding: 0 15px !important;
-        border-radius: 25px !important;
-        z-index: 10000 !important;
-    }
-
-    .nav-item {
-        margin-bottom: 0 !important;
-    }
-
-    .user-menu-container {
-        margin-top: 0 !important;
-        padding-bottom: 0 !important;
-        width: auto !important;
+        width: 90%;
+        min-width: unset;
+        height: 65px;
+        flex-direction: row;
+        position: fixed;
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 0 20px;
+        border-radius: 20px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        justify-content: space-between;
     }
 
     .logout-popover {
-        top: 75px !important;
+        position: absolute !important;
+        top: 60px !important; /* Το σπρώχνει κάτω από τη μπάρα */
         left: auto !important;
-        right: 0px !important;
+        right: 0 !important;   /* Το ευθυγραμμίζει με το δεξί άκρο της μπάρας */
         bottom: auto !important;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
+        min-width: 150px !important;
+    }
+
+    .nav-item {
+        margin-bottom: 0;
+        width: 45px;
+        height: 45px;
+    }
+
+    .user-menu-container {
+        margin-top: 0;
+        padding-bottom: 0;
+        width: auto;
+    }
+
+    body {
+        padding-top: 90px !important; 
+        padding-left: 0 !important;
+        overflow-y: auto !important;
     }
 }

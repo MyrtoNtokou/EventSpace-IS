@@ -268,14 +268,16 @@ textarea:focus,
 }
 
 @media (max-width: 768px) {
-    /* Δημιουργία χώρου στην κορυφή */
     .main-wrapper {
-        padding-top: 100px !important;
+        padding-top: 100px !important; /* Χώρος για την αιωρούμενη μπάρα */
         padding-left: 10px !important;
         padding-right: 10px !important;
+        display: block !important; /* Απενεργοποιούμε τυχόν flex που εμποδίζει το κεντράρισμα */
     }
 
     .calendar-card {
-        padding: 20px !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+        padding: 15px !important;
     }
 }
