@@ -24,7 +24,7 @@ function generateAvailableDays(year, month) {
 }
 
 //σελίδα φόρμας κράτησης
-const FORM_URL = '../pages/form of interest.html';
+const FORM_URL = '../pages/formOfInterest.html';
 
 function renderCalendar() {
   document.getElementById('calMonth').textContent = `${MONTHS[month]} ${year}`;
