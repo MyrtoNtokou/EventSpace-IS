@@ -66,6 +66,9 @@ formatTime('endTime');
 
 
 function calculateOffer() {
+
+    const calcButton = document.querySelector('.calc-check-wrapper');
+
     const startTime = document.getElementById('startTime').value;
     const endTime = document.getElementById('endTime').value;
     const orgType = document.getElementById('orgType').value;
@@ -85,7 +88,7 @@ function calculateOffer() {
     const end = timeToDecimal(endTime);
 
     let duration = end - start;
-    if (duration < 0) duration += 24; 
+    if (duration < 0) duration += 24;
 
     if (duration === 0) {
         alert("Η ώρα λήξης δεν μπορεί να είναι ίδια με την ώρα έναρξης.");
@@ -102,6 +105,9 @@ function calculateOffer() {
 
     const totalAmount = duration * hourlyRate;
     resultField.value = totalAmount.toFixed(2) + " €";
+
+    // 👇 ΣΤΑΜΑΤΑΕΙ ΤΟ PULSE ΜΟΝΟ ΑΝ ΥΠΟΛΟΓΙΣΤΕΙ ΕΠΙΤΥΧΩΣ
+    calcButton.classList.remove('pulse');
 }
 
 const eventData = {
@@ -154,8 +160,42 @@ document.getElementById('eventSelect').addEventListener('change', function() {
         document.getElementById('minyHub').checked = false;
         document.getElementById('finalAmount').value = "";
     }
+
+    togglePulse();
 });
 
 document.getElementById('orgType').addEventListener('change', function () {
     document.getElementById('finalAmount').value = "";
+});
+
+const calcButton = document.querySelector('.calc-check-wrapper');
+
+function isFormValid() {
+    const event = document.getElementById('eventSelect').value;
+    const date = document.getElementById('eventDate').value;
+    const start = document.getElementById('startTime').value;
+    const end = document.getElementById('endTime').value;
+    const org = document.getElementById('orgType').value;
+
+    return event && date && start && end && org;
+}
+
+function togglePulse() {
+    if (isFormValid()) {
+        calcButton.classList.add('pulse');
+    } else {
+        calcButton.classList.remove('pulse');
+    }
+}
+
+[
+    'eventSelect',
+    'eventDate',
+    'startTime',
+    'endTime',
+    'orgType'
+].forEach(id => {
+    const el = document.getElementById(id);
+    el.addEventListener('input', togglePulse);
+    el.addEventListener('change', togglePulse);
 });
