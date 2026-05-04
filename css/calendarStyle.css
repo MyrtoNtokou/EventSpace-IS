@@ -268,3 +268,69 @@ textarea:focus,
     gap: 10px;
     padding-top: 20px;
 }
+
+
+@media (max-width: 768px) {
+  .calendar-day {
+    min-width: 0;
+    overflow: hidden;
+    padding: 4px;
+  }
+    
+  .event-tag {
+    font-size: 0.55rem;
+    padding: 2px 4px;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+  }
+
+  #calendarGrid {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .row.g-0 {
+    margin: 0;
+  }
+  
+  .col {
+    padding: 0;
+    min-width: 0;
+  }
+
+  .calendar-card {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 15px;
+    border-radius: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .main-wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    padding: 80px 10px 10px 10px;
+    margin: 0;
+  }
+
+  .event-label, 
+  .event {
+    font-size: 0.65rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+  }
+
+  body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+}
