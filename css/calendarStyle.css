@@ -186,6 +186,10 @@ input, textarea {
     cursor: pointer;
 }
 
+#childCare {
+    accent-color: var(--accent-color);
+}
+
 .check-item input {
     width: 18px;
     height: 18px;
