@@ -14,26 +14,26 @@ body {
 }
 
 .form-box h3 {
-    color: #6fb98f !important;
+    color: #ea8736 !important;
     font-weight: 700 !important;
     letter-spacing: 0.5px;
     text-transform: uppercase;
 }
 
 .text-primary, h3, h5 {
-    color: #5BB78E !important;
+    color: #ea8736 !important;
 }
 
 .btn-primary {
-    background-color: #5BB78E !important;
-    border-color: #5BB78E !important;
+    background-color: #ea8736 !important;
+    border-color: #ea8736 !important;
     border-radius: 10px;
     padding: 10px 25px;
     font-weight: bold;
 }
 
 .btn-primary:hover {
-    background-color: #5da37a !important;
+    background-color: #CD6815 !important;
 }
 
 /* Ρυθμίσεις για τα input πεδία */
@@ -43,8 +43,8 @@ body {
 }
 
 .form-control:focus, .form-select:focus {
-    border-color: #5BB78E;
-    box-shadow: 0 0 0 0.25rem rgba(111, 185, 143, 0.25);
+    border-color: #ea8736;
+    box-shadow: 0 0 0 0.25rem rgba(185, 153, 111, 0.25);
 }
 
 /* Συμβατότητα με κινητά */

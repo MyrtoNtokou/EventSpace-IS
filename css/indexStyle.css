@@ -39,8 +39,8 @@
 }
 
 .client-border {
-    border-color: #E89B81;
-    color: #E89B81;
+    border-color: #ea8736;
+    color: #ea8736;
 }
 
 .org-border {
@@ -54,7 +54,7 @@
 }
 
 .client-border:hover {
-    background-color: #E89B81;
+    background-color: #ea8736;
     color: white;
 }
 
