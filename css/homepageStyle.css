@@ -87,18 +87,3 @@
 
 .event-entry h3 { margin: 0; font-size: 1.2rem; }
 .event-entry p { margin: 5px 0 0; opacity: 0.5; }
-
-@media (max-width: 768px) {
-    /* Δίνουμε χώρο στην κορυφή του περιεχομένου */
-    .dashboard-content {
-        padding-top: 100px !important; 
-        padding-left: 20px !important;
-        padding-right: 20px !important;
-    }
-
-    /* Μετατρέπουμε το grid σε μονή στήλη για να χωράει στο κινητό */
-    .dashboard-grid {
-        grid-template-columns: 1fr !important;
-        gap: 20px !important;
-    }
-}
