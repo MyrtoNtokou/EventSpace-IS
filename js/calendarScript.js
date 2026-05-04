@@ -3,8 +3,8 @@ let currentDate = new Date();
 const myEvents = {
     10: "GreenPlanet",
     25: "BrightStep AE",
-    15: "GlobalTech Solutions",
-    5: "EcoVibe Organization",
+    15: "GlobalTech",
+    5: "EcoVibe Org",
     12: "SolarSystems Ltd",
     20: "Urban Design Co"
 };
@@ -73,6 +73,7 @@ function goToToday() {
 function openEventModal(day, existingEvent) {
     const modal = document.getElementById('eventModal');
     const form = document.getElementById('eventForm');
+    const footer = modal.querySelector('.modal-footer');
     const submitBtn = form.querySelector('.btn-primary'); // Το κουμπί Αποθήκευση
     
     modal.classList.remove('hidden');
@@ -81,6 +82,9 @@ function openEventModal(day, existingEvent) {
     // Θέτουμε την ημερομηνία
     document.getElementById('eventDate').value = `${day}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}`;
     
+    const oldExtraBtn = document.getElementById('extraYellowBtn');
+    if (oldExtraBtn) oldExtraBtn.remove();
+
     if (existingEvent) {
         document.getElementById('modalTitle').innerText = "Στοιχεία Εκδήλωσης";
         
@@ -96,7 +100,19 @@ function openEventModal(day, existingEvent) {
         // Επιλογή τυχαίων checkboxes/radios για την αναπαράσταση
         document.getElementById('childCare').checked = true;
         form.querySelector('input[name="layout"][value="theatrical"]').checked = true;
-        form.querySelectorAll('.details-column input[type="checkbox"]')[1].checked = true; // π.χ. Μικροφωνική
+        form.querySelectorAll('.details-column input[type="checkbox"]')[1].checked = true;
+
+        const yellowDays = [5, 12, 20];
+        if (yellowDays.includes(day)) {
+            const extraBtn = document.createElement('button');
+            extraBtn.type = 'button';
+            extraBtn.id = 'extraYellowBtn';
+            extraBtn.className = 'btn-extra';
+            extraBtn.innerText = 'Οριστικοποίηση';
+            extraBtn.onclick = () => alert('Το στάδιο της προσφοράρς έχει ολοκληρωθεί.');
+            
+            footer.insertBefore(extraBtn, footer.firstChild);
+        }
 
         toggleFields(form, false);
         submitBtn.style.display = 'inline-block'; // Κρύβουμε το κουμπί αποθήκευσης
