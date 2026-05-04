@@ -3,7 +3,10 @@ let currentDate = new Date();
 const myEvents = {
     10: "GreenPlanet",
     25: "BrightStep AE",
-    15: "GlobalTech Solutions"
+    15: "GlobalTech Solutions",
+    5: "EcoVibe Organization",
+    12: "SolarSystems Ltd",
+    20: "Urban Design Co"
 };
 
 function renderCalendar() {
@@ -35,14 +38,15 @@ function renderCalendar() {
 
         let todayClass = isToday ? 'today-circle' : '';
         
-        // Ορίζουμε τις ημέρες που θέλουμε να έχουν "ψεύτικα" events (π.χ. 12, 18, 25)
-        let fakeEventDays = [12, 18, 25];
+        let fakeEventDays = [5, 10, 12, 15, 18, 20, 25];
         let hasEvent = fakeEventDays.includes(day);
-        
-        // Δημιουργία του HTML για το tag αν η μέρα περιλαμβάνεται στη λίστα
-        // Έλεγχος αν η συγκεκριμένη μέρα (day) υπάρχει στη λίστα myEvents
+ 
         let eventTitle = myEvents[day] || ""; 
-        let eventHtml = eventTitle ? `<span class="event-tag">${eventTitle}</span>` : '';
+
+        let yellowDays = [5, 12, 20];
+        let colorClass = yellowDays.includes(day) ? 'event-tag event-yellow' : 'event-tag';
+
+        let eventHtml = eventTitle ? `<span class="${colorClass}">${eventTitle}</span>` : '';
 
         grid.innerHTML += `
             <div class="calendar-day" onclick="openEventModal(${day}, '${eventTitle}')">
@@ -88,7 +92,6 @@ function openEventModal(day, existingEvent) {
         document.getElementById('contactName').value = "Μαρία Παπαδοπούλου";
         document.getElementById('contactPhone').value = "2101234567";
         document.getElementById('contactEmail').value = "info@eventspace.gr";
-        document.getElementById('eventComments').value = "Απαιτείται πρόσβαση για ΑμεΑ και στήσιμο από τις 09:00.";
         
         // Επιλογή τυχαίων checkboxes/radios για την αναπαράσταση
         document.getElementById('childCare').checked = true;
@@ -126,3 +129,4 @@ window.onclick = function(event) {
     const modal = document.getElementById('eventModal');
     if (event.target == modal) closeModal();
 }
+
