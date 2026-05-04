@@ -1,4 +1,6 @@
-body { background-color: var(--bg-main) !important; overflow: hidden; }
+body { background-color: var(--bg-main) !important;
+    overflow-x: hidden;
+}
 
 #calendarGrid {
     display: grid;
