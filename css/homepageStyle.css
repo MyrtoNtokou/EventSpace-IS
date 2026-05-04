@@ -124,7 +124,8 @@
     }
 
     .alerts-column {
-        order: 1;
+        display: flex΅!important; 
+        flex-direction: column !important;
     }
 
     .schedule-card {
