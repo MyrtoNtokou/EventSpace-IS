@@ -28,57 +28,59 @@
     </div>
 
     <!-- MAIN CONTENT -->
-    <main class="dashboard-content">
-        <header class="header-section">
-            <h1>Καλώς Ήρθατε</h1>
-            <p>Αυτή είναι η εικόνα του event space σήμερα.</p>
-        </header>
+    <div class="main-wrapper"></div>
+        <main class="dashboard-content">
+            <header class="header-section">
+                <h1>Καλώς Ήρθατε</h1>
+                <p>Αυτή είναι η εικόνα του event space σήμερα.</p>
+            </header>
 
-        <section class="dashboard-grid">
-            <!-- Αριστερή Στήλη: Alerts -->
-            <div class="alerts-column">
-                <div class="alert-bubble inbox">
-                    <img src="../icons/unread.svg" class="bubble-icon">
-                    <div class="bubble-text">
-                        <strong>5 νέα αιτήματα</strong>
-                        <span>Περιμένουν έγκριση</span>
-                    </div>
-                </div>
-                <div class="alert-bubble events">
-                    <img src="../icons/edit.svg" class="bubble-icon">
-                    <div class="bubble-text">
-                        <strong>3 εκκρεμή events</strong>
-                        <span>Χρειάζονται προσφορά</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Δεξιά Στήλη: Today's Schedule -->
-            <div class="schedule-card">
-                <div class="card-header">
-                    <h2>Σήμερα</h2>
-                    <span id="current-date-display" class="date-badge"></span>
-                </div>
-                
-                <div class="schedule-list">
-                    <div class="event-entry confirmed">
-                        <span class="time">10:00</span>
-                        <div class="details">
-                            <h3>LifeGuard Pro</h3>
-                            <p>Σεμινάριο Πρώτων Βοηθειών</p>
+            <section class="dashboard-grid">
+                <!-- Αριστερή Στήλη: Alerts -->
+                <div class="alerts-column">
+                    <div class="alert-bubble inbox">
+                        <img src="../icons/unread.svg" class="bubble-icon">
+                        <div class="bubble-text">
+                            <strong>5 νέα αιτήματα</strong>
+                            <span>Περιμένουν έγκριση</span>
                         </div>
                     </div>
-                    <div class="event-entry pending">
-                        <span class="time">18:00</span>
-                        <div class="details">
-                            <h3>Ink & Quill Society</h3>
-                            <p>Writing Club</p>
+                    <div class="alert-bubble events">
+                        <img src="../icons/edit.svg" class="bubble-icon">
+                        <div class="bubble-text">
+                            <strong>3 εκκρεμή events</strong>
+                            <span>Χρειάζονται προσφορά</span>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </main>
+
+                <!-- Δεξιά Στήλη: Today's Schedule -->
+                <div class="schedule-card">
+                    <div class="card-header">
+                        <h2>Σήμερα</h2>
+                        <span id="current-date-display" class="date-badge"></span>
+                    </div>
+                    
+                    <div class="schedule-list">
+                        <div class="event-entry confirmed">
+                            <span class="time">10:00</span>
+                            <div class="details">
+                                <h3>LifeGuard Pro</h3>
+                                <p>Σεμινάριο Πρώτων Βοηθειών</p>
+                            </div>
+                        </div>
+                        <div class="event-entry pending">
+                            <span class="time">18:00</span>
+                            <div class="details">
+                                <h3>Ink & Quill Society</h3>
+                                <p>Writing Club</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
     
     <script src="../js/script.js"></script>
     <script src="../js/homepageScript.js"></script>

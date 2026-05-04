@@ -87,3 +87,19 @@
 
 .event-entry h3 { margin: 0; font-size: 1.2rem; }
 .event-entry p { margin: 5px 0 0; opacity: 0.5; }
+
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .dashboard-content {
+        padding: 20px;
+    }
+
+    .schedule-card {
+        padding: 30px;
+        min-height: auto;
+    }
+}
