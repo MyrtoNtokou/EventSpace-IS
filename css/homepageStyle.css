@@ -88,29 +88,17 @@
 .event-entry h3 { margin: 0; font-size: 1.2rem; }
 .event-entry p { margin: 5px 0 0; opacity: 0.5; }
 
-/* Media Query για οθόνες κινητών */
 @media (max-width: 768px) {
-    .calendar-card .d-flex.justify-content-between > div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
+    .dashboard-content {
+        padding: 100px 20px 40px 20px !important;
     }
 
-    .calendar-card .btn-nav {
-        order: 1;
+    .dashboard-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
     }
 
-    .calendar-card .btn-today {
-        order: 2;
-        margin-right: 0;
-        width: 100%;
-        max-width: 120px;
-    }
-
-    .calendar-card .d-flex.justify-content-between {
-        flex-direction: column;
-        gap: 20px;
+    .header-section {
         text-align: center;
     }
 }

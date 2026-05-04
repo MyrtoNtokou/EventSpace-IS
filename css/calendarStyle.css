@@ -266,3 +266,16 @@ textarea:focus,
     gap: 10px;
     padding-top: 20px;
 }
+
+@media (max-width: 768px) {
+    /* Δημιουργία χώρου στην κορυφή */
+    .main-wrapper {
+        padding-top: 100px !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    .calendar-card {
+        padding: 20px !important;
+    }
+}
